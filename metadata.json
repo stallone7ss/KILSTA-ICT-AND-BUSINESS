@@ -1,0 +1,8 @@
+{
+  "name": "KILSTA Business & ICT Consultants",
+  "description": "High-performance corporate portal for KILSTA Business & ICT Consultants featuring business compliance, ICT infrastructure, Starlink deployment, and Cloudflare Hyperdrive / Supabase lead intake.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
