@@ -18,6 +18,24 @@ export async function onRequestOptions() {
   });
 }
 
+export async function onRequestGet() {
+  return new Response(
+    JSON.stringify({
+      status: 'operational',
+      service: 'KILSTA Business & ICT Consultants Edge Gateway',
+      region: 'Cloudflare Pages Functions',
+      timestamp: new Date().toISOString()
+    }),
+    {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }
+  );
+}
+
 export async function onRequestPost(context) {
   const { request, env, waitUntil } = context;
 

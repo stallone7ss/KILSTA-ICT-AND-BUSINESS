@@ -3,4 +3,4 @@
  * Handles project intake requests sent to /api/leads route.
  */
 
-export { onRequestOptions, onRequestPost } from './submit.js';
+export { onRequestOptions, onRequestGet, onRequestPost } from './submit.js';
