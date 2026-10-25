@@ -9,8 +9,8 @@ compatibility_flags = ["nodejs_compat"]
 # Hyperdrive connection pool binding
 # Replace <HYPERDRIVE_ID> with the ID from: npx wrangler hyperdrive create kilsta-supabase-pool --connection-string="..."
 [[hyperdrive]]
-binding = "HYPERDRIVE"
-id = "<HYPERDRIVE_ID>"
+binding = "kilsta-db"
+id = "<8b8082737c2b4bf09b8>"
 
 # Fallback environment variables
 [vars]
