@@ -1,0 +1,16 @@
+# Cloudflare Pages / Worker Hyperdrive Configuration
+# Reference for production binding with Supabase Postgres
+
+name = "kilsta-edge-gateway"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Hyperdrive connection pool binding
+[[hyperdrive]]
+binding = "HYPERDRIVE"
+id = "<HYPERDRIVE_ID>"
+
+[vars]
+ENVIRONMENT = "production"
+KILSTA_OFFICIAL_EMAIL = "kilsta2023@gmail.com"
