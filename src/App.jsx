@@ -39,69 +39,27 @@ export default function App() {
   };
 
   const copySchemaSql = () => {
-    const sqlContent = `-- ==============================================================================
--- KILSTA Business & ICT Consultants: Supabase PostgreSQL Architecture
--- IPA Reg: 6-129295384 | TIN: 502603269 | Alotau, Milne Bay Province, PNG
--- ==============================================================================
+    const sqlContent = `// src/db/schema.ts - Drizzle ORM PostgreSQL Schema
+import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
-CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+export const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  uid: text('uid').notNull().unique(), // Firebase Auth UID
+  email: text('email').notNull(),
+  createdAt: timestamp('created_at').defaultNow(),
+});
 
-CREATE TABLE IF NOT EXISTS public.leads (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    name TEXT NOT NULL CHECK (char_length(trim(name)) >= 2),
-    email TEXT NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$'),
-    phone TEXT,
-    organization TEXT,
-    service_category TEXT NOT NULL CHECK (char_length(trim(service_category)) >= 2),
-    service_division TEXT NOT NULL DEFAULT 'General Corporate',
-    message TEXT NOT NULL CHECK (char_length(trim(message)) >= 5),
-    status TEXT NOT NULL DEFAULT 'New',
-    priority TEXT NOT NULL DEFAULT 'Standard',
-    assigned_to TEXT,
-    admin_notes TEXT,
-    ip_address INET,
-    client_timezone TEXT DEFAULT 'Pacific/Port_Moresby',
-    source TEXT DEFAULT 'KILSTA Cloudflare Portal',
-    metadata JSONB DEFAULT '{}'::jsonb
-);
-
-CREATE TABLE IF NOT EXISTS public.lead_activity_logs (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    lead_id UUID NOT NULL REFERENCES public.leads(id) ON DELETE CASCADE,
-    timestamp TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    action TEXT NOT NULL,
-    actor TEXT NOT NULL DEFAULT 'system',
-    previous_state JSONB,
-    new_state JSONB,
-    notes TEXT
-);
-
--- Row-Level Security Configuration
-ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.lead_activity_logs ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public insert to leads"
-    ON public.leads FOR INSERT
-    TO anon, authenticated
-    WITH CHECK (
-        char_length(trim(name)) >= 2 AND
-        email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$' AND
-        char_length(trim(message)) >= 5
-    );
-
-CREATE POLICY "Allow authenticated read leads"
-    ON public.leads FOR SELECT
-    TO authenticated
-    USING (true);
-
-CREATE POLICY "Allow authenticated update leads"
-    ON public.leads FOR UPDATE
-    TO authenticated
-    USING (true)
-    WITH CHECK (true);`;
+export const leads = pgTable('leads', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  phone: text('phone'),
+  organization: text('organization'),
+  serviceCategory: text('service_category').notNull(),
+  message: text('message').notNull(),
+  status: text('status').notNull().default('New'),
+  createdAt: timestamp('created_at').defaultNow(),
+});`;
     navigator.clipboard?.writeText(sqlContent);
     setCopiedCode(true);
     setTimeout(() => setCopiedCode(false), 2000);
@@ -185,7 +143,7 @@ CREATE POLICY "Allow authenticated update leads"
               className="text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-1 text-[11px] underline underline-offset-2 font-medium"
             >
               <FileCode2 className="w-3.5 h-3.5 text-orange-500" />
-              <span>Cloudflare / Supabase Specs</span>
+              <span>PostgreSQL Database Specs</span>
             </button>
           </div>
 
@@ -668,17 +626,17 @@ CREATE POLICY "Allow authenticated update leads"
             {/* Col 4: Technical Gateway Specs */}
             <div className="space-y-3">
               <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-                Edge Architecture
+                Database Architecture
               </span>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Deployed via Cloudflare Pages edge network with Cloudflare Hyperdrive connection pooling to Supabase PostgreSQL for low-latency rural intake.
+                Integrated with high-performance managed PostgreSQL utilizing Drizzle ORM and lazy connection pooling for ultra-low latency rural Papua New Guinea intake.
               </p>
               <button
                 onClick={() => setShowArchitectureModal(true)}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-orange-50 border border-slate-300 hover:border-orange-300 rounded-lg text-[11px] font-semibold text-slate-800 transition-colors shadow-2xs"
               >
                 <FileCode2 className="w-3.5 h-3.5 text-orange-600" />
-                <span>View schema.sql &amp; RLS Blueprint</span>
+                <span>View schema.ts &amp; Architecture</span>
               </button>
             </div>
 
@@ -698,7 +656,7 @@ CREATE POLICY "Allow authenticated update leads"
         </div>
       </footer>
 
-      {/* 10. Cloudflare Hyperdrive & Supabase Schema Modal */}
+      {/* 10. PostgreSQL Database Architecture Modal */}
       {showArchitectureModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm">
           <div className="bg-white border border-slate-200 rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
@@ -711,10 +669,10 @@ CREATE POLICY "Allow authenticated update leads"
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900">
-                    Database Architecture &amp; Hyperdrive Gateway
+                    PostgreSQL Database Architecture &amp; ORM
                   </h3>
                   <span className="text-xs text-orange-600 font-semibold">
-                    Supabase PostgreSQL + Cloudflare Edge Pipeline
+                    Managed Cloud PostgreSQL + Drizzle ORM + Connection Pooling
                   </span>
                 </div>
               </div>
@@ -730,67 +688,53 @@ CREATE POLICY "Allow authenticated update leads"
             <div className="p-6 overflow-y-auto space-y-5 text-xs text-slate-600 leading-relaxed font-sans">
               <div className="bg-orange-50/70 p-4 rounded-xl border border-orange-200 text-slate-700 space-y-2">
                 <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
-                  Pipeline Mechanics
+                  PostgreSQL Pipeline Mechanics
                 </span>
                 <p>
-                  <strong>Cloudflare Hyperdrive</strong> pools and accelerates database connections across 300+ global edge cities. Instead of initiating heavy TLS handshakes from client devices or cold serverless lambdas, queries reuse established connections to Supabase PostgreSQL, reducing latency on mobile 3G/4G/Starlink connections.
+                  <strong>Managed PostgreSQL</strong> delivers transactional ACID safety and robust relational data modeling. Server-side connection pooling maintains warm connections, eliminating heavy handshake overhead on mobile 3G/4G or Starlink satellite links.
                 </p>
                 <p>
-                  <strong>Row-Level Security (RLS)</strong> is strictly enforced in PostgreSQL: anonymous visitors are granted INSERT permission exclusively, whereas administrative reading and modifications require authenticated JWT credentials.
+                  <strong>Drizzle ORM</strong> provides end-to-end TypeScript type-safety between API routes, client inquiries, and SQL tables (`leads` and `users`), ensuring strict data integrity without runtime ORM bloat.
                 </p>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-slate-900 uppercase tracking-wider">
-                    schema.sql (Supabase DDL &amp; RLS)
+                    schema.ts (Drizzle PostgreSQL Schema)
                   </span>
                   <button
                     onClick={copySchemaSql}
                     className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-orange-500 hover:bg-orange-600 text-white transition-colors text-[11px] font-semibold"
                   >
                     {copiedCode ? <Check className="w-3 h-3 text-white" /> : <Copy className="w-3 h-3" />}
-                    <span>{copiedCode ? 'Copied' : 'Copy SQL'}</span>
+                    <span>{copiedCode ? 'Copied' : 'Copy Schema'}</span>
                   </button>
                 </div>
                 <pre className="bg-slate-900 p-4 rounded-xl border border-slate-800 font-mono text-[11px] text-amber-200 overflow-x-auto leading-normal">
-{`CREATE EXTENSION IF NOT EXISTS "pgcrypto";
-CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+{`// src/db/schema.ts
+import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
--- Core Leads Ingestion Table
-CREATE TABLE IF NOT EXISTS public.leads (
-    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
-    name TEXT NOT NULL CHECK (char_length(trim(name)) >= 2),
-    email TEXT NOT NULL CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$'),
-    phone TEXT,
-    organization TEXT,
-    service_category TEXT NOT NULL,
-    service_division TEXT NOT NULL DEFAULT 'General Corporate',
-    message TEXT NOT NULL CHECK (char_length(trim(message)) >= 5),
-    status TEXT NOT NULL DEFAULT 'New',
-    priority TEXT NOT NULL DEFAULT 'Standard',
-    assigned_to TEXT,
-    ip_address INET,
-    metadata JSONB DEFAULT '{}'::jsonb
-);
+// Users table with Firebase UID
+export const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  uid: text('uid').notNull().unique(),
+  email: text('email').notNull(),
+  createdAt: timestamp('created_at').defaultNow(),
+});
 
--- Row-Level Security (RLS) Configuration
-ALTER TABLE public.leads ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public insert to leads"
-    ON public.leads FOR INSERT
-    TO anon, authenticated
-    WITH CHECK (
-        char_length(trim(name)) >= 2 AND
-        email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$'
-    );
-
-CREATE POLICY "Allow authenticated read leads"
-    ON public.leads FOR SELECT
-    TO authenticated
-    USING (true);`}
+// Leads intake table for KILSTA project inquiries
+export const leads = pgTable('leads', {
+  id: serial('id').primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  phone: text('phone'),
+  organization: text('organization'),
+  serviceCategory: text('service_category').notNull(),
+  message: text('message').notNull(),
+  status: text('status').notNull().default('New'),
+  createdAt: timestamp('created_at').defaultNow(),
+});`}
                 </pre>
               </div>
 

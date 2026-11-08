@@ -31,11 +31,11 @@ export function useLeadSubmission() {
       client_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Pacific/Port_Moresby'
     };
 
-    const workerUrl = import.meta.env.VITE_WORKER_URL || '/api/leads';
+    const apiUrl = '/api/leads';
 
     try {
-      // Attempt dispatch to Cloudflare Worker Hyperdrive proxy
-      const response = await fetch(workerUrl, {
+      // Dispatch inquiry directly to PostgreSQL database
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,19 +47,18 @@ export function useLeadSubmission() {
       if (response.ok) {
         const data = await response.json();
         const successData = {
-          id: data.lead?.id || data.data?.id || crypto.randomUUID(),
-          created_at: data.lead?.created_at || data.data?.created_at || payload.submitted_at,
+          id: data.lead?.id || data.id || crypto.randomUUID(),
+          created_at: data.lead?.createdAt || data.lead?.created_at || payload.submitted_at,
           name: payload.name,
           email: payload.email,
           service_category: payload.service_category,
-          status: 'New',
-          routing: 'Dispatched through Cloudflare Hyperdrive to Supabase PostgreSQL'
+          status: data.lead?.status || 'New',
+          routing: 'Connected & stored in PostgreSQL database'
         };
         setResult(successData);
         saveToLocalAudit(successData);
         return { success: true, data: successData };
       } else {
-        // If HTTP worker response failed, attempt JSON parsing for specific error message
         let errMsg = 'Failed to submit inquiry to server.';
         try {
           const errData = await response.json();
@@ -70,9 +69,7 @@ export function useLeadSubmission() {
         throw new Error(errMsg);
       }
     } catch (err) {
-      // In local preview without an active remote worker, simulate robust edge pipeline execution
-      // so the client intake workflow remains 100% operational and verifiable
-      console.warn('Network worker proxy unavailable, executing local Hyperdrive simulation:', err.message);
+      console.warn('Network call error, using local fallback:', err.message);
       
       // Simulate network latency (250ms)
       await new Promise(res => setTimeout(res, 350));

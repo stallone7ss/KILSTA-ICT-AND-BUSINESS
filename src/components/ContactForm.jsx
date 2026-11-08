@@ -495,7 +495,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-5 h-5 animate-spin" />
-                          <span>Dispatching to Hyperdrive Pool...</span>
+                          <span>Saving to PostgreSQL Database...</span>
                         </>
                       ) : (
                         <>
@@ -505,8 +505,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       )}
                     </button>
                     <div className="flex items-center justify-between text-[11px] text-slate-500 mt-2.5 px-1">
-                      <span>Encrypted SSL 256-bit ingestion</span>
-                      <span className="font-mono">Supabase RLS Enforced</span>
+                      <span>Encrypted SSL Connection</span>
+                      <span className="font-mono text-orange-600 font-semibold">PostgreSQL + Drizzle ORM</span>
                     </div>
                   </div>
 
