@@ -88,19 +88,19 @@ export default function Team() {
   };
 
   return (
-    <section id="team" className="py-20 bg-[#2B4257] border-t border-[#37526D]">
+    <section id="team" className="py-20 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#FFE715] tracking-wider uppercase mb-2">
-            <UserCheck className="w-4 h-4 text-[#FFE715]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
+            <UserCheck className="w-4 h-4 text-orange-500" />
             Leadership &amp; Academic Pedigree
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
             Management &amp; Credentials Grid
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-600">
             KILSTA is spearheaded by seasoned PNG professionals with accredited academic degrees from premier regional universities, combining economic governance with advanced computer science.
           </p>
         </div>
@@ -110,46 +110,46 @@ export default function Team() {
           {leaders.map((leader, idx) => (
             <div 
               key={idx}
-              className="flex flex-col justify-between bg-[#243748] border border-[#3A556F] hover:border-[#53A58B] hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#53A58B]/10 rounded-2xl p-7 transition-all duration-300 group"
+              className="flex flex-col justify-between bg-white border border-slate-200 hover:border-orange-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-orange-500/10 rounded-2xl p-7 transition-all duration-300 group shadow-xs"
             >
               <div>
                 {/* Card Header & Avatar Badge */}
                 <div className="flex items-start justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-[#53A58B]/20 text-[#FFE715] border border-[#53A58B]/40 group-hover:border-[#FFE715] group-hover:scale-105 flex items-center justify-center font-extrabold text-xl transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 border border-orange-200 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:scale-105 flex items-center justify-center font-extrabold text-xl transition-all duration-300">
                     {leader.name.split(' ').slice(1).map(n => n[0]).join('')}
                   </div>
-                  <span className="text-xs font-semibold text-[#53A58B] bg-[#53A58B]/10 px-2.5 py-1 rounded-md border border-[#53A58B]/30">
+                  <span className="text-xs font-semibold text-orange-700 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200">
                     {leader.roleTag}
                   </span>
                 </div>
 
                 {/* Name & Title */}
-                <h3 className="text-2xl font-bold text-white group-hover:text-[#FFE715] transition-colors">
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                   {leader.name}
                 </h3>
-                <p className="text-sm font-semibold text-[#53A58B] mt-0.5 mb-4">
+                <p className="text-sm font-semibold text-orange-600 mt-0.5 mb-4">
                   {leader.title}
                 </p>
 
                 {/* Bio */}
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
                   {leader.bio}
                 </p>
 
                 {/* Academic Credentials */}
-                <div className="border-t border-[#344F69] pt-5 mb-5">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-200 uppercase tracking-wider mb-3">
-                    <GraduationCap className="w-4 h-4 text-[#FFE715]" />
+                <div className="border-t border-slate-100 pt-5 mb-5">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
+                    <GraduationCap className="w-4 h-4 text-orange-500" />
                     <span>Accredited Qualifications</span>
                   </div>
                   <div className="space-y-3">
                     {leader.qualifications.map((qual, qIdx) => (
-                      <div key={qIdx} className="bg-[#1D2C3A] p-3 rounded-xl border border-[#344F69]/70">
-                        <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                          <Award className="w-3.5 h-3.5 text-[#53A58B] shrink-0" />
+                      <div key={qIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                        <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                          <Award className="w-3.5 h-3.5 text-orange-500 shrink-0" />
                           <span>{qual.degree}</span>
                         </div>
-                        <div className="text-[11px] text-slate-300 mt-1 pl-5">
+                        <div className="text-[11px] text-slate-600 mt-1 pl-5">
                           {qual.institution}
                         </div>
                       </div>
@@ -158,15 +158,15 @@ export default function Team() {
                 </div>
 
                 {/* Core Competencies */}
-                <div className="border-t border-[#344F69] pt-4 mb-6">
-                  <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <div className="border-t border-slate-100 pt-4 mb-6">
+                  <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
                     Core Specializations
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {leader.specialties.map((item, sIdx) => (
                       <span 
                         key={sIdx}
-                        className="text-[11px] text-slate-300 bg-[#2D455A] px-2 py-0.5 rounded border border-[#3A5670]"
+                        className="text-[11px] text-slate-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200/80"
                       >
                         {item}
                       </span>
@@ -176,12 +176,12 @@ export default function Team() {
               </div>
 
               {/* Action */}
-              <div className="border-t border-[#344F69] pt-4">
+              <div className="border-t border-slate-100 pt-4">
                 <button
                   onClick={scrollToContact}
-                  className="w-full py-2.5 px-4 text-xs font-semibold text-slate-100 bg-[#2E4559] hover:bg-[#53A58B] hover:text-white hover:scale-[1.02] active:scale-[0.98] rounded-lg transition-all duration-200 border border-[#446380] flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-4 text-xs font-bold text-slate-700 bg-slate-50 hover:bg-orange-500 hover:text-white hover:scale-[1.02] active:scale-[0.98] rounded-xl transition-all duration-200 border border-slate-200 flex items-center justify-center gap-2 shadow-xs"
                 >
-                  <Mail className="w-3.5 h-3.5 text-[#FFE715]" />
+                  <Mail className="w-3.5 h-3.5 text-orange-500 group-hover:text-white" />
                   <span>Consult with {leader.name.split(' ')[1]}</span>
                 </button>
               </div>
@@ -191,23 +191,23 @@ export default function Team() {
         </div>
 
         {/* Credential Authenticity Banner */}
-        <div className="mt-12 p-5 bg-[#1F303F] border border-[#3A556F] rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-5 bg-orange-50/70 border border-orange-200/80 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#53A58B]/20 flex items-center justify-center text-[#53A58B] shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white">Verified Academic Institutions</h4>
-              <p className="text-xs text-slate-300">
+              <h4 className="text-sm font-bold text-slate-900">Verified Academic Institutions</h4>
+              <p className="text-xs text-slate-600">
                 Credentials verified across University of Papua New Guinea, PNG University of Technology, University of Southern Queensland, and University of Goroka.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-300 font-mono shrink-0 bg-[#25394B] px-3 py-1.5 rounded-lg border border-[#3A556F]">
+          <div className="flex items-center gap-2 text-xs text-slate-700 font-mono shrink-0 bg-white px-3 py-1.5 rounded-lg border border-orange-200 shadow-xs">
             <img 
               src="/assets/aistudio/image_56d8a76b.png" 
               alt="Milne Bay Province Flag" 
-              className="w-4 h-2.5 object-cover rounded-xs border border-slate-600 shrink-0" 
+              className="w-4 h-2.5 object-cover rounded-xs border border-slate-300 shrink-0" 
             />
             <span>Milne Bay Governance Desk</span>
           </div>

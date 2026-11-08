@@ -184,31 +184,31 @@ export default function Services({ onSelectService }) {
   };
 
   return (
-    <section id="services" className="py-20 bg-[#25394B] border-t border-[#37526D]">
+    <section id="services" className="py-20 bg-slate-50/60 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#FFE715] tracking-wider uppercase mb-2">
-            <Sparkles className="w-4 h-4 text-[#FFE715]" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
+            <Sparkles className="w-4 h-4 text-orange-500" />
             Dual Fields of Expertise
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-balance">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
             Corporate Solutions Infrastructure
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-slate-300">
+          <p className="mt-3 text-base sm:text-lg text-slate-600">
             KILSTA unifies statutory business compliance with frontline ICT connectivity, equipping organisations in Papua New Guinea to operate formally and connect reliably.
           </p>
         </div>
 
         {/* Category Switcher Tabs */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#1E2F3F] border border-[#385470] rounded-xl w-fit mb-10">
+        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-white border border-slate-200 rounded-xl w-fit mb-10 shadow-xs">
           <button
             onClick={() => setActiveTab('all')}
             className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'all'
-                ? 'bg-[#53A58B] text-white shadow-sm'
-                : 'text-slate-300 hover:text-white hover:bg-[#2B4257]'
+                ? 'bg-orange-500 text-white shadow-xs'
+                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
             }`}
           >
             All Solutions (10)
@@ -217,8 +217,8 @@ export default function Services({ onSelectService }) {
             onClick={() => setActiveTab('business')}
             className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'business'
-                ? 'bg-[#53A58B] text-white shadow-sm'
-                : 'text-slate-300 hover:text-white hover:bg-[#2B4257]'
+                ? 'bg-orange-500 text-white shadow-xs'
+                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
             }`}
           >
             <Briefcase className="w-4 h-4" />
@@ -228,8 +228,8 @@ export default function Services({ onSelectService }) {
             onClick={() => setActiveTab('ict')}
             className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'ict'
-                ? 'bg-[#53A58B] text-white shadow-sm'
-                : 'text-slate-300 hover:text-white hover:bg-[#2B4257]'
+                ? 'bg-orange-500 text-white shadow-xs'
+                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
             }`}
           >
             <Wifi className="w-4 h-4" />
@@ -239,34 +239,34 @@ export default function Services({ onSelectService }) {
 
         {/* Dual Disciplines Overview Banner */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="p-6 bg-[#2B4257] border border-[#446585] rounded-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#53A58B]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="p-6 bg-white border border-orange-200 rounded-2xl relative overflow-hidden shadow-xs">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-[#53A58B]/20 text-[#53A58B] flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
                 A
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Section A: Business Services</h3>
-                <span className="text-xs text-[#FFE715] font-medium">Compliance, Formalization &amp; Fiscal Hygiene</span>
+                <h3 className="text-lg font-bold text-slate-900">Section A: Business Services</h3>
+                <span className="text-xs text-orange-600 font-semibold">Compliance, Formalization &amp; Fiscal Hygiene</span>
               </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               Transition informal operations into legally recognized entities. We manage complete IPA incorporations, IRC Tax Identification Numbers, company profiles, and grant-ready project proposals.
             </p>
           </div>
 
-          <div className="p-6 bg-[#2B4257] border border-[#446585] rounded-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFE715]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="p-6 bg-white border border-orange-200 rounded-2xl relative overflow-hidden shadow-xs">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-[#FFE715]/20 text-[#FFE715] flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold shadow-xs">
                 B
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white">Section B: ICT Services &amp; Trainings</h3>
-                <span className="text-xs text-[#53A58B] font-medium">Satellites, Networks &amp; Digital Systems</span>
+                <h3 className="text-lg font-bold text-slate-900">Section B: ICT Services &amp; Trainings</h3>
+                <span className="text-xs text-orange-600 font-semibold">Satellites, Networks &amp; Digital Systems</span>
               </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               Bridge the digital divide across maritime and mainland provinces. We deploy Starlink satellite terminals, structured LAN/WLAN networks, relational databases, and corporate technical training.
             </p>
           </div>
@@ -276,45 +276,40 @@ export default function Services({ onSelectService }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => {
             const Icon = service.icon;
-            const isBusiness = service.category === 'Business Services';
             
             return (
               <div
                 key={service.id}
-                className="group flex flex-col justify-between p-6 bg-[#2B4257] hover:bg-[#314B63] border border-[#3E5C7A] hover:border-[#53A58B] hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#53A58B]/10 rounded-2xl transition-all duration-300"
+                className="group flex flex-col justify-between p-6 bg-white hover:bg-orange-50/20 border border-slate-200 hover:border-orange-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-orange-500/10 rounded-2xl transition-all duration-300"
               >
                 <div>
                   {/* Category label & Icon */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold text-slate-400">
+                    <span className="text-xs font-semibold text-slate-500">
                       {service.category}
                     </span>
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                      isBusiness 
-                        ? 'bg-[#53A58B]/20 text-[#53A58B] group-hover:bg-[#53A58B] group-hover:text-white' 
-                        : 'bg-[#FFE715]/20 text-[#FFE715] group-hover:bg-[#FFE715] group-hover:text-[#2B4257]'
-                    } group-hover:scale-110 transition-all duration-300`}>
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-orange-100 text-orange-600 group-hover:bg-orange-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title & Summary */}
-                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#FFE715] transition-colors">
+                  <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
                     {service.title}
                   </h4>
-                  <p className="text-sm text-slate-300 leading-relaxed mb-5">
+                  <p className="text-sm text-slate-600 leading-relaxed mb-5">
                     {service.summary}
                   </p>
 
                   {/* Deliverables Checklist */}
-                  <div className="border-t border-[#3B5773] pt-4 mb-5">
-                    <span className="text-xs font-bold text-slate-200 uppercase tracking-wider block mb-2">
+                  <div className="border-t border-slate-100 pt-4 mb-5">
+                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
                       Key Deliverables
                     </span>
                     <ul className="space-y-1.5">
                       {service.deliverables.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-slate-300">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#53A58B] shrink-0 mt-0.5" />
+                        <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -323,13 +318,13 @@ export default function Services({ onSelectService }) {
                 </div>
 
                 {/* Footer action & target */}
-                <div className="border-t border-[#3B5773] pt-4 mt-2">
-                  <div className="text-xs text-slate-400 mb-3 truncate">
-                    <strong className="text-slate-300">Best for:</strong> {service.target}
+                <div className="border-t border-slate-100 pt-4 mt-2">
+                  <div className="text-xs text-slate-500 mb-3 truncate">
+                    <strong className="text-slate-700">Best for:</strong> {service.target}
                   </div>
                   <button
                     onClick={() => handleBook(service.title)}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#53A58B] hover:bg-[#469179] hover:scale-[1.02] active:scale-[0.98] rounded-lg transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#FFE715]"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-orange-400"
                   >
                     <span>Request Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />

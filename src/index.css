@@ -2,21 +2,20 @@
 
 @layer base {
   :root {
-    --color-seafoam: #53A58B;
-    --color-seafoam-dark: #3F826D;
-    --color-seafoam-light: #6BBFA4;
-    --color-seafoam-subtle: #EBF5F1;
-    --color-slate-navy: #2B4257;
-    --color-slate-navy-dark: #1E2F3F;
-    --color-slate-navy-surface: #35516B;
-    --color-slate-navy-border: #446482;
-    --color-accent-gold: #FFE715;
-    --color-accent-gold-hover: #ECCC00;
+    --color-orange-primary: #F97316;
+    --color-orange-dark: #EA580C;
+    --color-orange-light: #FB923C;
+    --color-orange-subtle: #FFF7ED;
+    --color-neutral-bg: #FFFFFF;
+    --color-neutral-surface: #F8FAFC;
+    --color-neutral-border: #E2E8F0;
+    --color-text-main: #0F172A;
+    --color-text-muted: #475569;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    color-scheme: light;
   }
 
   /* Anchor offset for sticky header */
