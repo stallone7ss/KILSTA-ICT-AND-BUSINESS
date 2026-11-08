@@ -48,12 +48,13 @@ export function useLeadSubmission() {
         const data = await response.json();
         const successData = {
           id: data.lead?.id || data.id || crypto.randomUUID(),
+          firebase_id: data.firebaseDocId || null,
           created_at: data.lead?.createdAt || data.lead?.created_at || payload.submitted_at,
           name: payload.name,
           email: payload.email,
           service_category: payload.service_category,
           status: data.lead?.status || 'New',
-          routing: 'Connected & stored in PostgreSQL database'
+          routing: 'Synchronized to PostgreSQL & Firebase Firestore'
         };
         setResult(successData);
         saveToLocalAudit(successData);

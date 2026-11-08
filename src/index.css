@@ -102,7 +102,41 @@
   .animate-marquee-fast,
   .animate-marquee-reverse,
   .animate-float,
-  .animate-pulse-halo {
+  .animate-pulse-halo,
+  .animate-star-sparkle,
+  .animate-star-twinkle {
     animation: none !important;
   }
+}
+
+@keyframes star-sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.1) rotate(0deg);
+  }
+  40%, 60% {
+    opacity: 1;
+    transform: scale(1.15) rotate(90deg);
+    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.8)) drop-shadow(0 0 14px rgba(251, 146, 60, 0.6));
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.65);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.75));
+  }
+}
+
+.animate-star-sparkle {
+  animation: star-sparkle 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 2.4s ease-in-out infinite;
 }

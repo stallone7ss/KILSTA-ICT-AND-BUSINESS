@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "Lead": {
+      "title": "Lead",
+      "description": "Client consultation and project inquiry records",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the contact person",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Official email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number or WhatsApp contact",
+          "maxLength": 30
+        },
+        "organization": {
+          "type": "string",
+          "description": "Business, cooperative, or community organization name",
+          "maxLength": 150
+        },
+        "service_category": {
+          "type": "string",
+          "description": "Requested advisory or ICT service track",
+          "maxLength": 100
+        },
+        "message": {
+          "type": "string",
+          "description": "Project requirements or scope details",
+          "minLength": 5,
+          "maxLength": 3000
+        },
+        "status": {
+          "type": "string",
+          "description": "Processing status of the lead",
+          "enum": ["New", "In Review", "Contacted", "Proposal Sent", "Closed"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Submission timestamp"
+        }
+      },
+      "required": ["name", "email", "service_category", "message", "status"]
+    }
+  },
+  "firestore": {
+    "/leads/{leadId}": {
+      "schema": "Lead",
+      "description": "Collection of all public intake leads and corporate inquiries"
+    }
+  }
+}

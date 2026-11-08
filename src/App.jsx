@@ -28,6 +28,7 @@ import Services from './components/Services';
 import Team from './components/Team';
 import ContactForm from './components/ContactForm';
 import MarqueeStrip from './components/MarqueeStrip';
+import StarSparkles from './components/StarSparkles';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
@@ -200,6 +201,9 @@ export const leads = pgTable('leads', {
 
       {/* 3. Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-white via-orange-50/40 to-white pt-12 pb-20 border-b border-slate-200">
+        {/* Animated starry spark background */}
+        <StarSparkles count={34} />
+
         {/* Subtle decorative background glow */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-orange-400/10 blur-3xl pointer-events-none rounded-full" />
 
@@ -207,9 +211,32 @@ export const leads = pgTable('leads', {
           
           {/* TOP OF HERO: Official Emblem of KILSTA Business & ICT Consultants, Company Name & Certified Advisory */}
           <div className="max-w-3xl mx-auto text-center mb-10">
-            {/* Prominent Animated Emblem Logo */}
+            {/* Prominent Animated Emblem Logo with Star Sparkles */}
             <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 mb-5 transition-transform hover:scale-105 duration-300 animate-float">
               <div className="absolute inset-0 bg-orange-400/20 rounded-full blur-xl pointer-events-none animate-pulse-halo" />
+              
+              {/* Surrounding Sparkling Stars */}
+              <span className="absolute -top-2 -right-2 text-amber-500 animate-star-sparkle w-6 h-6 pointer-events-none z-20">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#f59e0b]">
+                  <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
+                </svg>
+              </span>
+              <span className="absolute -bottom-2 -left-2 text-orange-500 animate-star-sparkle w-5 h-5 pointer-events-none z-20" style={{ animationDelay: '1.2s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#ea580c]">
+                  <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
+                </svg>
+              </span>
+              <span className="absolute top-1/2 -left-4 text-amber-400 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '0.6s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                  <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
+                </svg>
+              </span>
+              <span className="absolute top-1/3 -right-3 text-orange-400 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '1.8s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                  <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
+                </svg>
+              </span>
+
               <img
                 src="/assets/aistudio/Kilsta_Business_ICT_Consultancy_Emblem_5a8c1ec5.png"
                 alt="Official Emblem of KILSTA Business & ICT Consultants"
@@ -391,8 +418,10 @@ export const leads = pgTable('leads', {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="bg-gradient-to-r from-orange-50/80 via-white to-orange-50/50 border border-orange-200/90 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xs">
+            {/* Celestial Star Sparkles Ambiance */}
+            <StarSparkles count={20} />
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               
               <div className="lg:col-span-7 space-y-4">
                 <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase">
@@ -741,7 +770,17 @@ export const leads = pgTable('leads', {
             </div>
 
             {/* Modal Footer */}
-            <div className="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
+            <div className="p-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-3">
+              <a
+                href="https://console.firebase.google.com/project/velvety-joy-5sjh2/firestore/databases/ai-studio-kilstabusinessic-7a1e1b24-5472-4dd7-9644-64c1a73de32a/data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-orange-700 bg-orange-100 hover:bg-orange-200 rounded-lg transition-colors border border-orange-200"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>View Requests in Firebase Console</span>
+              </a>
+
               <button
                 onClick={() => setShowArchitectureModal(false)}
                 className="px-4 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors"

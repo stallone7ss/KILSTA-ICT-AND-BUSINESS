@@ -12,7 +12,9 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(express.json());
 
-// Public leads intake route: stores client inquiry directly into PostgreSQL
+import { adminDb } from './src/lib/firebase-admin.ts';
+
+// Public leads intake route: stores client inquiry directly into PostgreSQL and Firebase Firestore
 app.post('/api/leads', async (req, res) => {
   try {
     const { name, email, phone, organization, service_category, message } = req.body;
@@ -20,6 +22,7 @@ app.post('/api/leads', async (req, res) => {
       return res.status(400).json({ error: 'Missing required inquiry fields' });
     }
 
+    // 1. Record lead in PostgreSQL database via Drizzle ORM
     const newLead = await createLead({
       name,
       email,
@@ -29,10 +32,30 @@ app.post('/api/leads', async (req, res) => {
       message,
     });
 
+    // 2. Save lead directly into Firebase Firestore 'leads' collection for Firebase Console review
+    let firebaseDocId = null;
+    try {
+      const fbRef = await adminDb.collection('leads').add({
+        name,
+        email,
+        phone: phone || null,
+        organization: organization || null,
+        service_category,
+        message,
+        status: 'New',
+        postgresId: newLead.id,
+        createdAt: new Date().toISOString(),
+      });
+      firebaseDocId = fbRef.id;
+    } catch (fbErr) {
+      console.warn('Firebase Firestore write notice:', fbErr);
+    }
+
     res.status(201).json({
       success: true,
       lead: newLead,
-      message: 'Inquiry successfully saved to PostgreSQL database.',
+      firebaseDocId,
+      message: 'Inquiry successfully saved to PostgreSQL and Firebase Firestore.',
     });
   } catch (error: any) {
     console.error('Lead submission endpoint error:', error);

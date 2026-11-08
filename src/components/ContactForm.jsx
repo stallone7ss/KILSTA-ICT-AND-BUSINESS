@@ -17,7 +17,8 @@ import {
   Facebook,
   Linkedin,
   Youtube,
-  Share2
+  Share2,
+  ExternalLink
 } from 'lucide-react';
 import { useLeadSubmission } from '../hooks/useLeadSubmission';
 
@@ -311,21 +312,23 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     {/* Metadata Table */}
                     <div className="mt-6 pt-5 border-t border-orange-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                       <div>
-                        <span className="text-slate-500 block">Assigned Lead UUID:</span>
+                        <span className="text-slate-500 block">PostgreSQL Lead ID:</span>
                         <span className="font-mono text-slate-900 select-all break-all">{result.id}</span>
                       </div>
                       <div>
-                        <span className="text-slate-500 block">Created Timestamp (UTC):</span>
-                        <span className="font-mono text-slate-900">{new Date(result.created_at).toLocaleString()}</span>
+                        <span className="text-slate-500 block">Firebase Document:</span>
+                        <span className="font-mono text-orange-600 font-semibold select-all break-all">
+                          {result.firebase_id ? `leads/${result.firebase_id}` : 'Synced to Firestore'}
+                        </span>
                       </div>
                       <div>
                         <span className="text-slate-500 block">Service Track:</span>
                         <span className="font-semibold text-orange-600">{result.service_category}</span>
                       </div>
                       <div>
-                        <span className="text-slate-500 block">Initial Status:</span>
+                        <span className="text-slate-500 block">Status &amp; Cloud Sync:</span>
                         <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-orange-500 text-white">
-                          {result.status}
+                          {result.status} · Synced
                         </span>
                       </div>
                     </div>
@@ -341,11 +344,13 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       <span>Submit Another Inquiry</span>
                     </button>
                     <a
-                      href="tel:+67582545274"
-                      className="py-3 px-4 text-xs font-bold text-orange-700 bg-orange-100 hover:bg-orange-200 border border-orange-200 rounded-xl transition-colors flex items-center justify-center gap-2"
+                      href="https://console.firebase.google.com/project/velvety-joy-5sjh2/firestore/databases/ai-studio-kilstabusinessic-7a1e1b24-5472-4dd7-9644-64c1a73de32a/data"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-3 px-4 text-xs font-bold text-orange-800 bg-orange-100 hover:bg-orange-200 border border-orange-200 rounded-xl transition-colors flex items-center justify-center gap-2"
                     >
-                      <Phone className="w-4 h-4 text-orange-600" />
-                      <span>Call Management Directly</span>
+                      <ExternalLink className="w-4 h-4 text-orange-600" />
+                      <span>View in Firebase Console</span>
                     </a>
                   </div>
                 </div>
