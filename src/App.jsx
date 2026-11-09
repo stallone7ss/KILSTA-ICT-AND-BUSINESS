@@ -31,6 +31,7 @@ import ContactForm from './components/ContactForm';
 import MarqueeStrip from './components/MarqueeStrip';
 import StarSparkles from './components/StarSparkles';
 import AdminPortal from './components/AdminPortal';
+import GeminiChatbot from './components/GeminiChatbot';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
@@ -816,6 +817,9 @@ export const leads = pgTable('leads', {
         isOpen={showAdminPortal} 
         onClose={() => setShowAdminPortal(false)} 
       />
+
+      {/* 12. Interactive Gemini Multi-Turn AI Advisory Assistant */}
+      <GeminiChatbot />
 
     </div>
   );

@@ -13,6 +13,116 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 app.use(express.json());
 
 import { adminDb } from './src/lib/firebase-admin.ts';
+import { ai } from './src/lib/gemini.ts';
+
+const KILSTA_SYSTEM_INSTRUCTION = `You are "KILSTA AI Advisory Assistant", the official digital corporate consultant and technical strategist for KILSTA Business & ICT Consultants, situated in Gumini Village, Huhu LLG, Alotau District, Milne Bay Province, Papua New Guinea (PNG).
+
+Official Enterprise Credentials:
+- Investment Promotion Authority (IPA) Registration No: 6-129295384
+- Internal Revenue Commission (IRC) Tax Identification Number (TIN): 502603269
+- Corporate Location: Gumini Village, Alotau, Milne Bay Province, Papua New Guinea
+- Executive Inquiries: +675 82545274 | kilsta2023@gmail.com
+- Identity: 100% Papua New Guinea owned and community-anchored
+
+Your Core Divisions & Advisory Scope:
+1. Section A: Business Advisory, Governance & Compliance
+   - IPA company registrations, business names, certificate renewals, and statutory annual return filings.
+   - IRC Tax Identification Number (TIN) applications, GST registration, Salary or Business Withholding Tax, and Certificate of Compliance (COC).
+   - SME corporate profiles, formal bank account opening kits, and structured bookkeeping seminars.
+   - Transitioning informal village trades, clan associations, and local contractors into tender-ready corporate entities.
+
+2. Section B: ICT Infrastructure & Starlink Satellite Engineering
+   - Turnkey Starlink Low-Earth Orbit (LEO) satellite terminal deployments across maritime islands and mainland PNG.
+   - Cyclone-rated heavy-duty roof brackets, tower masts, and salt-mist resistant cabling.
+   - Direct lightning arrestor surge suppression, grounding rods, and solar battery / UPS integration for off-grid operations.
+   - Multi-building rural Wi-Fi mesh networks, point-to-point microwave links, and structured ethernet distribution.
+   - Hands-on ICT capacity training: office productivity software workshops, computer maintenance, and network troubleshooting.
+
+Response Guidelines:
+- Adopt a professional, respectful, articulate, and culturally attuned tone appropriate for PNG government, SMEs, church groups, health posts, schools, and private enterprises.
+- Structure responses clearly with bold section headings, bullet points, and numbered action steps.
+- Explain statutory processes clearly (e.g. required forms, identification, typical timelines, and compliance rules).
+- For ICT and satellite inquiries, emphasize practical PNG field realities: coastal corrosion protection, jungle canopy clearances, solar backup, and storm protection.
+- Guide clients to book an official consultation or submit an inquiry through the KILSTA Contact Desk when they are ready for formal engagement.`;
+
+// Multi-turn Gemini AI Chat Route
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { message, history = [], mode = 'general' } = req.body;
+    if (!message || typeof message !== 'string' || !message.trim()) {
+      return res.status(400).json({ error: 'A valid message is required' });
+    }
+
+    // Determine model according to task: general (gemini-3.8-flash), fast (gemini-3.1-flash-lite), complex (gemini-4-argon)
+    let selectedModel = 'gemini-3.8-flash';
+    if (mode === 'fast') {
+      selectedModel = 'gemini-3.1-flash-lite';
+    } else if (mode === 'complex') {
+      selectedModel = 'gemini-4-argon';
+    }
+
+    // Assemble multi-turn history into the GenAI contents format
+    const contents: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }> = [];
+
+    if (Array.isArray(history)) {
+      for (const item of history) {
+        if (item && item.text && (item.role === 'user' || item.role === 'model')) {
+          contents.push({
+            role: item.role === 'user' ? 'user' : 'model',
+            parts: [{ text: item.text }],
+          });
+        }
+      }
+    }
+
+    // Append current user message
+    contents.push({
+      role: 'user',
+      parts: [{ text: message.trim() }],
+    });
+
+    try {
+      const response = await ai.models.generateContent({
+        model: selectedModel,
+        contents,
+        config: {
+          systemInstruction: KILSTA_SYSTEM_INSTRUCTION,
+        },
+      });
+
+      const reply = response.text || 'Thank you for consulting KILSTA Business & ICT Consultants. Please let us know how we can assist further.';
+      return res.json({
+        success: true,
+        reply,
+        modelUsed: selectedModel,
+      });
+    } catch (modelErr: any) {
+      // If complex model (gemini-4-argon) faces access/tier constraints, transparently fallback to gemini-3.8-flash
+      if (selectedModel === 'gemini-4-argon') {
+        console.warn('Fallback from gemini-4-argon to gemini-3.8-flash:', modelErr?.message);
+        const fallbackResp = await ai.models.generateContent({
+          model: 'gemini-3.8-flash',
+          contents,
+          config: {
+            systemInstruction: KILSTA_SYSTEM_INSTRUCTION,
+          },
+        });
+        return res.json({
+          success: true,
+          reply: fallbackResp.text || 'Thank you for consulting KILSTA Business & ICT Consultants.',
+          modelUsed: 'gemini-3.8-flash',
+        });
+      }
+      throw modelErr;
+    }
+  } catch (error: any) {
+    console.error('Server Gemini Chat Route Error:', error);
+    res.status(500).json({
+      error: error.message || 'Failed to generate AI response. Please check back shortly.',
+    });
+  }
+});
+
 
 // Public leads intake route: stores client inquiry directly into PostgreSQL and Firebase Firestore
 app.post('/api/leads', async (req, res) => {
