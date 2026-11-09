@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
-import { createLead, getLeads } from './src/db/leads.ts';
+import { createLead, getLeads, updateLead, deleteLead } from './src/db/leads.ts';
 import { requireAuth, AuthRequest } from './src/middleware/auth.ts';
 import { getOrCreateUser } from './src/db/users.ts';
 
@@ -74,6 +74,64 @@ app.get('/api/leads', requireAuth, async (req: AuthRequest, res) => {
   } catch (error: any) {
     console.error('Failed to retrieve leads:', error);
     res.status(500).json({ error: error.message || 'Failed to retrieve leads' });
+  }
+});
+
+// Update lead route (for administrators to edit status, organization, etc.)
+app.put('/api/leads/:id', requireAuth, async (req: AuthRequest, res) => {
+  try {
+    const leadId = parseInt(req.params.id, 10);
+    const { status, phone, organization, serviceCategory, firestoreId } = req.body;
+
+    const updated = await updateLead(leadId, {
+      status,
+      phone,
+      organization,
+      serviceCategory,
+    });
+
+    // Update in Firestore if doc ID exists
+    if (firestoreId) {
+      try {
+        await adminDb.collection('leads').doc(firestoreId).update({
+          status: status || 'New',
+          phone: phone || null,
+          organization: organization || null,
+          service_category: serviceCategory,
+          updatedAt: new Date().toISOString(),
+        });
+      } catch (fbErr) {
+        console.warn('Firestore update sync notice:', fbErr);
+      }
+    }
+
+    res.json({ success: true, lead: updated });
+  } catch (error: any) {
+    console.error('Failed to update lead:', error);
+    res.status(500).json({ error: error.message || 'Failed to update lead' });
+  }
+});
+
+// Delete lead route
+app.delete('/api/leads/:id', requireAuth, async (req: AuthRequest, res) => {
+  try {
+    const leadId = parseInt(req.params.id, 10);
+    const { firestoreId } = req.body || {};
+
+    const deleted = await deleteLead(leadId);
+
+    if (firestoreId) {
+      try {
+        await adminDb.collection('leads').doc(firestoreId).delete();
+      } catch (fbErr) {
+        console.warn('Firestore delete notice:', fbErr);
+      }
+    }
+
+    res.json({ success: true, lead: deleted });
+  } catch (error: any) {
+    console.error('Failed to delete lead:', error);
+    res.status(500).json({ error: error.message || 'Failed to delete lead' });
   }
 });
 

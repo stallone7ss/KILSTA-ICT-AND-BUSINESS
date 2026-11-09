@@ -42,10 +42,30 @@
           "description": "Processing status of the lead",
           "enum": ["New", "In Review", "Contacted", "Proposal Sent", "Closed"]
         },
+        "priority": {
+          "type": "string",
+          "description": "Priority tier of the inquiry",
+          "enum": ["Standard", "High", "Urgent"]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Administrative notes and follow-up log",
+          "maxLength": 3000
+        },
+        "assigned_to": {
+          "type": "string",
+          "description": "Assigned KILSTA officer",
+          "maxLength": 100
+        },
         "createdAt": {
           "type": "string",
           "format": "date-time",
           "description": "Submission timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
         }
       },
       "required": ["name", "email", "service_category", "message", "status"]

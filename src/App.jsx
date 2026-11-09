@@ -22,17 +22,20 @@ import {
   Check,
   Facebook,
   Linkedin,
-  Youtube
+  Youtube,
+  Lock
 } from 'lucide-react';
 import Services from './components/Services';
 import Team from './components/Team';
 import ContactForm from './components/ContactForm';
 import MarqueeStrip from './components/MarqueeStrip';
 import StarSparkles from './components/StarSparkles';
+import AdminPortal from './components/AdminPortal';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
   const [showArchitectureModal, setShowArchitectureModal] = useState(false);
+  const [showAdminPortal, setShowAdminPortal] = useState(false);
   const [copiedCode, setCopiedCode] = useState(false);
 
   const handleSelectService = (serviceTitle) => {
@@ -146,6 +149,14 @@ export const leads = pgTable('leads', {
               <FileCode2 className="w-3.5 h-3.5 text-orange-500" />
               <span>PostgreSQL Database Specs</span>
             </button>
+            <span className="text-slate-300 hidden md:inline" aria-hidden="true">·</span>
+            <button
+              onClick={() => setShowAdminPortal(true)}
+              className="text-orange-700 hover:text-orange-800 font-bold transition-colors flex items-center gap-1 text-[11px] bg-orange-100 hover:bg-orange-200 px-2 py-0.5 rounded-md border border-orange-200 cursor-pointer shadow-2xs"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-orange-600" />
+              <span>Admin Portal</span>
+            </button>
           </div>
 
         </div>
@@ -186,11 +197,18 @@ export const leads = pgTable('leads', {
             </a>
           </nav>
 
-          {/* Zone 3: 1 primary action */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Zone 3: 1 primary action + Admin Portal */}
+          <div className="flex items-center gap-2.5 shrink-0">
+            <button
+              onClick={() => setShowAdminPortal(true)}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-orange-600 bg-white hover:bg-orange-50 border border-slate-200 hover:border-orange-200 rounded-xl transition-all shadow-2xs cursor-pointer"
+            >
+              <Lock className="w-3.5 h-3.5 text-orange-600" />
+              <span>Admin Portal</span>
+            </button>
             <a
               href="#contact"
-              className="px-4 py-2.5 text-xs sm:text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap shrink-0"
+              className="px-4 py-2 text-xs sm:text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap shrink-0"
             >
               Request Consultation
             </a>
@@ -792,6 +810,12 @@ export const leads = pgTable('leads', {
           </div>
         </div>
       )}
+
+      {/* 11. Interactive Admin Portal for Viewing and Editing Inquiries */}
+      <AdminPortal 
+        isOpen={showAdminPortal} 
+        onClose={() => setShowAdminPortal(false)} 
+      />
 
     </div>
   );
