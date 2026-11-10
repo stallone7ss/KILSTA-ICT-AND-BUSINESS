@@ -215,7 +215,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     </span>
                     <div className="flex flex-wrap items-center gap-2 mt-2">
                       <a
-                        href="https://facebook.com/kilsta.consultants"
+                        href="https://www.facebook.com/profile.php?id=61595946544223"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-[#1877F2] text-xs font-semibold text-slate-700 hover:text-white transition-all duration-200 border border-slate-200 hover:border-[#1877F2] hover:scale-105"

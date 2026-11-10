@@ -112,7 +112,7 @@ export const leads = pgTable('leads', {
             <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
             <div className="flex items-center gap-2.5">
               <a
-                href="https://facebook.com/kilsta.consultants"
+                href="https://www.facebook.com/profile.php?id=61595946544223"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="KILSTA on Facebook"
@@ -599,7 +599,7 @@ export const leads = pgTable('leads', {
                 </span>
                 <div className="flex items-center gap-2">
                   <a
-                    href="https://facebook.com/kilsta.consultants"
+                    href="https://www.facebook.com/profile.php?id=61595946544223"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="KILSTA Facebook Page"
