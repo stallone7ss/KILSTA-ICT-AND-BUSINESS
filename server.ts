@@ -45,31 +45,128 @@ Response Guidelines:
 - For ICT and satellite inquiries, emphasize practical PNG field realities: coastal corrosion protection, jungle canopy clearances, solar backup, and storm protection.
 - Guide clients to book an official consultation or submit an inquiry through the KILSTA Contact Desk when they are ready for formal engagement.`;
 
-// Multi-turn Gemini AI Chat Route
+// Local KILSTA Knowledge Base emergency fallback generator (used if upstream AI APIs experience temporary demand spikes)
+function getKilstaKnowledgeFallback(userQuery: string): string {
+  const q = (userQuery || '').toLowerCase();
+
+  if (q.includes('ipa') || q.includes('register') || q.includes('company') || q.includes('business name')) {
+    return `### **IPA Company & Business Name Registration | KILSTA Advisory**
+*(Official Registration No: 6-129295384)*
+
+Formalizing your enterprise with the **Investment Promotion Authority (IPA)** is the foundation for legal recognition, bank account opening, and government tender eligibility in Papua New Guinea.
+
+---
+
+### **1. Core IPA Services We Deliver:**
+- **Business Name Registration (Sole Trader / Partnership):** Fast-track filing for individuals and local ventures.
+- **Full Company Incorporation (Pty Ltd):** Complete Form 1, Company Constitution, shareholder registry, and directorship filings under the *Companies Act 1997*.
+- **Annual Return Compliance:** Statutory lodgments to keep your entity active and in good standing.
+
+### **2. Required Prerequisite Documents:**
+1. Valid Identification (PNG National ID Card or current Passport) for all Directors & Shareholders.
+2. Physical Residential & Principal Operating Address in PNG (e.g. Alotau, Milne Bay).
+3. 2–3 Proposed Entity Names for reservation clearance.
+4. Active email and contact phone for official electronic certification.
+
+### **3. Post-Incorporation IRC Integration:**
+Following IPA clearance, KILSTA immediately transitions your business to the **Internal Revenue Commission (IRC)** to obtain your **Tax Identification Number (TIN)** and **Certificate of Compliance (COC)**.
+
+**Direct Consultations:**
+- **Office:** Gumini Village, Huhu LLG, Alotau District, Milne Bay Province
+- **Phone / WhatsApp:** +675 82545274 | **Email:** kilsta2023@gmail.com`;
+  }
+
+  if (q.includes('starlink') || q.includes('satellite') || q.includes('internet') || q.includes('wifi') || q.includes('network') || q.includes('solar')) {
+    return `### **Starlink Turnkey Deployment & Rural ICT Infrastructure**
+*KILSTA Section B: ICT Engineering & Field Deployments*
+
+High-speed Low-Earth Orbit (LEO) satellite connectivity engineered specifically for Milne Bay's maritime, island, and rural conditions.
+
+---
+
+### **1. Hardware & Installation Packages:**
+- **Turnkey Starlink Kit Sourcing:** Standard & High-Performance terminals.
+- **Cyclone-Rated Structural Mounts:** Heavy-duty, anti-corrosion galvanized brackets engineered for coastal salt spray and high wind loads.
+- **Direct Lightning & Surge Protection:** Solid copper grounding rods and inline gigabit surge suppressors.
+- **Solar & Hybrid Power Integration:** Dedicated Pure Sine Wave inverters and battery backup for remote off-grid clinics, schools, and eco-resorts.
+- **Campus LAN & Wi-Fi Mesh:** Multi-building coverage links connecting administrative offices, classrooms, or accommodation blocks.
+
+### **2. Typical Deployment Timeline:**
+- **Milne Bay Mainland (Alotau / Huhu):** 24–48 hours upon kit arrival.
+- **Maritime Islands (Samarai, Misima, Losuia):** Coordinated dispatch via charter vessel or domestic logistics.
+
+**Contact Our Field Engineering Team:**
+- **Phone / WhatsApp:** +675 82545274 | **Email:** kilsta2023@gmail.com`;
+  }
+
+  if (q.includes('tin') || q.includes('irc') || q.includes('tax') || q.includes('gst') || q.includes('coc')) {
+    return `### **IRC Tax Identification (TIN) & Statutory Compliance**
+*(KILSTA TIN: 502603269)*
+
+Operating without tax compliance restricts your business from winning government tenders, corporate contracts, and establishing commercial trade accounts in PNG.
+
+---
+
+### **1. Tax Filing Services We Manage:**
+- **IRC TIN Application:** Rapid issuance of formal Tax Identification Numbers for newly incorporated companies and sole traders.
+- **Goods and Services Tax (GST):** Monthly returns and compliance filing for qualified businesses.
+- **Salary/Business Withholding Tax (SWT/BWT):** Payroll withholding records and statutory remittances.
+- **Certificate of Compliance (COC):** Crucial documentation required for contractors participating in public or provincial tenders.
+
+### **2. Bookkeeping & SME Financial Records:**
+KILSTA provides organized record-keeping templates and staff workshops so your enterprise maintains audit-ready ledgers throughout the financial year.
+
+**Schedule an Appointment:**
+- **Phone:** +675 82545274 | **Email:** kilsta2023@gmail.com`;
+  }
+
+  return `### **KILSTA Business & ICT Consultants**
+*Enhancing Through Business & ICT Innovations*
+- **IPA Registration:** 6-129295384 | **IRC TIN:** 502603269
+- **Headquarters:** Gumini Village, Huhu LLG, Alotau, Milne Bay Province, Papua New Guinea
+
+---
+
+### **How We Can Assist Your Organization:**
+1. **Section A (Corporate Services):** IPA Company Incorporation, Business Names, IRC TIN & GST registrations, corporate profiles, and tender kits.
+2. **Section B (ICT Infrastructure):** Starlink satellite installation, cyclone-rated mast engineering, off-grid solar integration, Wi-Fi mesh networking, and digital literacy training.
+
+Please ask a specific question above or submit an inquiry via our **Contact Desk** to receive a tailored quotation.
+**Direct Line:** +675 82545274 | **Email:** kilsta2023@gmail.com`;
+}
+
+// Multi-turn Gemini AI Chat Route with Cascade Failover & Timeout Protection
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, history = [], mode = 'general' } = req.body;
     if (!message || typeof message !== 'string' || !message.trim()) {
-      return res.status(400).json({ error: 'A valid message is required' });
+      return res.status(200).json({ 
+        success: false, 
+        error: 'Please enter a message to begin consultation.' 
+      });
     }
 
-    // Determine model according to task: general (gemini-3.8-flash), fast (gemini-3.1-flash-lite), complex (gemini-4-argon)
-    let selectedModel = 'gemini-3.8-flash';
+    // Determine cascade priority list of models to try
+    // We prioritize fast, high-availability models:
+    let candidateModels: string[] = [];
     if (mode === 'fast') {
-      selectedModel = 'gemini-3.1-flash-lite';
+      candidateModels = ['gemini-3.1-flash-lite', 'gemini-flash-latest', 'gemini-3.8-flash'];
     } else if (mode === 'complex') {
-      selectedModel = 'gemini-4-argon';
+      candidateModels = ['gemini-4-argon', 'gemini-3.1-flash-lite', 'gemini-3.8-flash'];
+    } else {
+      // General mode: try flash-lite first for instant response, or flash-latest
+      candidateModels = ['gemini-3.1-flash-lite', 'gemini-3.8-flash', 'gemini-flash-latest'];
     }
 
-    // Assemble multi-turn history into the GenAI contents format
+    // Assemble multi-turn history into GenAI format
     const contents: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }> = [];
 
     if (Array.isArray(history)) {
-      for (const item of history) {
+      for (const item of history.slice(-8)) { // keep last 8 messages for tight context
         if (item && item.text && (item.role === 'user' || item.role === 'model')) {
           contents.push({
             role: item.role === 'user' ? 'user' : 'model',
-            parts: [{ text: item.text }],
+            parts: [{ text: String(item.text) }],
           });
         }
       }
@@ -81,44 +178,62 @@ app.post('/api/chat', async (req, res) => {
       parts: [{ text: message.trim() }],
     });
 
-    try {
-      const response = await ai.models.generateContent({
-        model: selectedModel,
-        contents,
-        config: {
-          systemInstruction: KILSTA_SYSTEM_INSTRUCTION,
-        },
-      });
+    let generatedReply: string | null = null;
+    let successfulModel: string | null = null;
+    let lastError: any = null;
 
-      const reply = response.text || 'Thank you for consulting KILSTA Business & ICT Consultants. Please let us know how we can assist further.';
-      return res.json({
-        success: true,
-        reply,
-        modelUsed: selectedModel,
-      });
-    } catch (modelErr: any) {
-      // If complex model (gemini-4-argon) faces access/tier constraints, transparently fallback to gemini-3.8-flash
-      if (selectedModel === 'gemini-4-argon') {
-        console.warn('Fallback from gemini-4-argon to gemini-3.8-flash:', modelErr?.message);
-        const fallbackResp = await ai.models.generateContent({
-          model: 'gemini-3.8-flash',
+    // Try candidate models in order with a 10s timeout per attempt
+    for (const modelName of candidateModels) {
+      try {
+        console.log(`[Chat API] Attempting generation with model: ${modelName}`);
+        
+        const generatePromise = ai.models.generateContent({
+          model: modelName,
           contents,
           config: {
             systemInstruction: KILSTA_SYSTEM_INSTRUCTION,
           },
         });
-        return res.json({
-          success: true,
-          reply: fallbackResp.text || 'Thank you for consulting KILSTA Business & ICT Consultants.',
-          modelUsed: 'gemini-3.8-flash',
-        });
+
+        const timeoutPromise = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error(`Timeout after 10000ms with ${modelName}`)), 10000)
+        );
+
+        const response: any = await Promise.race([generatePromise, timeoutPromise]);
+        
+        if (response && response.text) {
+          generatedReply = response.text;
+          successfulModel = modelName;
+          console.log(`[Chat API] Success with ${modelName}`);
+          break;
+        }
+      } catch (err: any) {
+        lastError = err;
+        console.warn(`[Chat API] Model ${modelName} failed or timed out:`, err?.message || err);
+        // Continue to next model in cascade
       }
-      throw modelErr;
     }
+
+    // If all AI models failed or experienced demand spikes (503/429), use KILSTA knowledge base fallback
+    if (!generatedReply) {
+      console.warn('[Chat API] All live AI models unavailable; serving KILSTA knowledge base response.');
+      generatedReply = getKilstaKnowledgeFallback(message);
+      successfulModel = 'kilsta-knowledge-engine';
+    }
+
+    return res.status(200).json({
+      success: true,
+      reply: generatedReply,
+      modelUsed: successfulModel,
+    });
   } catch (error: any) {
-    console.error('Server Gemini Chat Route Error:', error);
-    res.status(500).json({
-      error: error.message || 'Failed to generate AI response. Please check back shortly.',
+    console.error('Server Gemini Chat Route Catch-all Error:', error);
+    // Never fail with raw 500 or broken JSON; provide verified fallback
+    const fallback = getKilstaKnowledgeFallback(req.body?.message || '');
+    return res.status(200).json({
+      success: true,
+      reply: fallback,
+      modelUsed: 'kilsta-knowledge-engine',
     });
   }
 });

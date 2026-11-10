@@ -117,24 +117,49 @@ export default function GeminiChatbot() {
         }),
       });
 
-      const data = await res.json();
-
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Server returned an error');
+      // Safely read raw text first to avoid "Failed to execute 'json' on 'Response'" crash
+      let rawText = '';
+      try {
+        rawText = await res.text();
+      } catch (readErr) {
+        console.warn('Could not read response text:', readErr);
       }
 
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: 'model',
-          text: data.reply,
-          timestamp: new Date(),
-          modelUsed: data.modelUsed || (activeMode === 'fast' ? 'gemini-3.1-flash-lite' : activeMode === 'complex' ? 'gemini-4-argon' : 'gemini-3.8-flash'),
-        },
-      ]);
+      let data = null;
+      if (rawText && rawText.trim()) {
+        try {
+          data = JSON.parse(rawText);
+        } catch (jsonErr) {
+          console.warn('Response was not valid JSON:', rawText);
+        }
+      }
+
+      if (data && data.reply) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'model',
+            text: data.reply,
+            timestamp: new Date(),
+            modelUsed: data.modelUsed || (activeMode === 'fast' ? 'gemini-3.1-flash-lite' : activeMode === 'complex' ? 'gemini-4-argon' : 'gemini-3.8-flash'),
+          },
+        ]);
+      } else {
+        // Fallback response with official KILSTA guidance if upstream API is busy
+        const fallbackText = "### **KILSTA Advisory Desk | Live Response**\n\nThank you for reaching out to **KILSTA Business & ICT Consultants**.\n\nOur AI advisory engine is currently operating under high demand. For urgent assistance with **IPA Company Registrations (IPA: 6-129295384)**, **IRC TIN Numbers (TIN: 502603269)**, or **Starlink Low-Earth Orbit Satellite Installations** across Milne Bay:\n\n- **Principal Director:** Stallone Yabom\n- **Direct Hotline / WhatsApp:** +675 82545274\n- **Email:** kilsta2023@gmail.com\n- **Office Location:** Gumini Village, Huhu LLG, Alotau District\n\nPlease submit an inquiry form below or re-send your question!";
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: 'model',
+            text: fallbackText,
+            timestamp: new Date(),
+            modelUsed: 'kilsta-advisory-desk',
+          },
+        ]);
+      }
     } catch (err) {
       console.error('Chat send error:', err);
-      setErrorNotice(err.message || 'Unable to connect to KILSTA AI service. Please verify your internet or try again.');
+      setErrorNotice('The advisory connection experienced a momentary delay. Please try again or call our Alotau office at +675 82545274.');
     } finally {
       setIsLoading(false);
     }
