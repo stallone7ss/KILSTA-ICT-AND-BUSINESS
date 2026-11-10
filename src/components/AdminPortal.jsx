@@ -427,7 +427,7 @@ export default function AdminPortal({ isOpen, onClose }) {
         {/* Top Header */}
         <div className="p-5 sm:p-6 border-b border-slate-200 flex flex-wrap items-center justify-between gap-4 bg-slate-50/90">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -435,7 +435,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                 <h3 className="text-lg font-black text-slate-900 tracking-tight">
                   KILSTA Management Desk
                 </h3>
-                <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-orange-500 text-white">
+                <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-[#0047BA] text-white">
                   Admin Portal
                 </span>
               </div>
@@ -468,12 +468,12 @@ export default function AdminPortal({ isOpen, onClose }) {
                   disabled={authLoading}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-800 bg-white hover:bg-slate-50 border border-slate-300 rounded-xl transition-all shadow-2xs"
                 >
-                  <LogIn className="w-3.5 h-3.5 text-orange-600" />
+                  <LogIn className="w-3.5 h-3.5 text-blue-600" />
                   <span>Google Sign-In</span>
                 </button>
                 <button
                   onClick={handleStaffQuickAccess}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl transition-all shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl transition-all shadow-xs"
                 >
                   <ShieldCheck className="w-3.5 h-3.5" />
                   <span>Staff Access</span>
@@ -525,13 +525,13 @@ export default function AdminPortal({ isOpen, onClose }) {
               <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">Total Leads</span>
               <span className="text-xl sm:text-2xl font-black text-slate-900 mt-1 block">{stats.total}</span>
             </div>
-            <div className="bg-orange-50/70 border border-orange-200 p-3.5 rounded-2xl">
-              <span className="text-[11px] font-bold text-orange-700 uppercase tracking-wider block">New Inquiries</span>
-              <span className="text-xl sm:text-2xl font-black text-orange-600 mt-1 block">{stats.newCount}</span>
+            <div className="bg-blue-50/70 border border-blue-200 p-3.5 rounded-2xl">
+              <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider block">New Inquiries</span>
+              <span className="text-xl sm:text-2xl font-black text-[#0047BA] mt-1 block">{stats.newCount}</span>
             </div>
-            <div className="bg-blue-50 border border-blue-200 p-3.5 rounded-2xl">
-              <span className="text-[11px] font-bold text-blue-700 uppercase tracking-wider block">In Review</span>
-              <span className="text-xl sm:text-2xl font-black text-blue-700 mt-1 block">{stats.inReview}</span>
+            <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-2xl">
+              <span className="text-[11px] font-bold text-slate-700 uppercase tracking-wider block">In Review</span>
+              <span className="text-xl sm:text-2xl font-black text-slate-800 mt-1 block">{stats.inReview}</span>
             </div>
             <div className="bg-purple-50 border border-purple-200 p-3.5 rounded-2xl">
               <span className="text-[11px] font-bold text-purple-700 uppercase tracking-wider block">Contacted</span>
@@ -543,7 +543,7 @@ export default function AdminPortal({ isOpen, onClose }) {
             </div>
             <div className="bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl">
               <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">Closed</span>
-              <span className="text-xl sm:text-2xl font-black text-emerald-700 mt-1 block">{stats.closed}</span>
+              <span className="text-xl sm:text-2xl font-black text-[#00A651] mt-1 block">{stats.closed}</span>
             </div>
           </div>
 
@@ -558,7 +558,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                   placeholder="Search by client name, email, organization, or message..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-orange-500 focus:bg-white transition-colors"
+                  className="w-full pl-9 pr-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:bg-white transition-colors"
                 />
               </div>
 
@@ -566,7 +566,7 @@ export default function AdminPortal({ isOpen, onClose }) {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-orange-500 cursor-pointer"
+                className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-blue-600 cursor-pointer"
               >
                 <option value="All">All Statuses ({leads.length})</option>
                 {STATUS_OPTIONS.map(opt => (
@@ -578,7 +578,7 @@ export default function AdminPortal({ isOpen, onClose }) {
               <select
                 value={serviceFilter}
                 onChange={(e) => setServiceFilter(e.target.value)}
-                className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-orange-500 cursor-pointer max-w-[200px] truncate"
+                className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none focus:border-blue-600 cursor-pointer max-w-[200px] truncate"
               >
                 <option value="All">All Service Tracks</option>
                 {uniqueServices.map(srv => (
@@ -594,7 +594,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                 title="Export filtered leads to CSV spreadsheet"
                 className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl transition-colors shadow-2xs cursor-pointer"
               >
-                <Download className="w-3.5 h-3.5 text-orange-600" />
+                <Download className="w-3.5 h-3.5 text-blue-600" />
                 <span>Export CSV</span>
               </button>
 
@@ -603,7 +603,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Open live Firebase Firestore collection in Console"
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-orange-700 bg-orange-100 hover:bg-orange-200 border border-orange-200 rounded-xl transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition-colors"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Firebase Console</span>
@@ -615,7 +615,7 @@ export default function AdminPortal({ isOpen, onClose }) {
           <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-2xs">
             {loadingLeads ? (
               <div className="p-12 text-center text-slate-500 text-xs space-y-2">
-                <RefreshCw className="w-6 h-6 animate-spin mx-auto text-orange-500" />
+                <RefreshCw className="w-6 h-6 animate-spin mx-auto text-blue-600" />
                 <p>Loading inquiries from PostgreSQL &amp; Firebase Firestore...</p>
               </div>
             ) : filteredLeads.length === 0 ? (
@@ -654,14 +654,14 @@ export default function AdminPortal({ isOpen, onClose }) {
                             <div className="font-bold text-slate-900">{lead.name}</div>
                             <div className="text-slate-500 text-[11px] flex items-center gap-1 mt-0.5">
                               <Mail className="w-3 h-3 text-slate-400 shrink-0" />
-                              <a href={`mailto:${lead.email}`} className="hover:text-orange-600 transition-colors truncate max-w-[140px]">
+                              <a href={`mailto:${lead.email}`} className="hover:text-blue-600 transition-colors truncate max-w-[140px]">
                                 {lead.email}
                               </a>
                             </div>
                             {lead.phone && (
                               <div className="text-slate-500 text-[11px] flex items-center gap-1 mt-0.5">
                                 <Phone className="w-3 h-3 text-slate-400 shrink-0" />
-                                <a href={`tel:${lead.phone}`} className="hover:text-orange-600 font-mono">
+                                <a href={`tel:${lead.phone}`} className="hover:text-blue-600 font-mono">
                                   {lead.phone}
                                 </a>
                               </div>
@@ -680,7 +680,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                               {lead.service_category}
                             </span>
                             {lead.assigned_to && (
-                              <span className="text-[10px] text-orange-600 font-semibold block mt-1">
+                              <span className="text-[10px] text-blue-700 font-semibold block mt-1">
                                 Assigned: {lead.assigned_to}
                               </span>
                             )}
@@ -699,9 +699,9 @@ export default function AdminPortal({ isOpen, onClose }) {
                                 onChange={(e) => handleQuickStatusChange(lead, e.target.value)}
                                 className={`text-[11px] font-bold px-2 py-1 rounded-lg border focus:outline-none cursor-pointer ${
                                   lead.status === 'New' 
-                                    ? 'bg-orange-100 text-orange-700 border-orange-200' 
+                                    ? 'bg-blue-100 text-blue-800 border-blue-200' 
                                     : lead.status === 'In Review'
-                                    ? 'bg-blue-100 text-blue-700 border-blue-200'
+                                    ? 'bg-slate-100 text-slate-700 border-slate-200'
                                     : lead.status === 'Contacted'
                                     ? 'bg-purple-100 text-purple-700 border-purple-200'
                                     : lead.status === 'Proposal Sent'
@@ -717,7 +717,7 @@ export default function AdminPortal({ isOpen, onClose }) {
 
                             {lead.priority && lead.priority !== 'Standard' && (
                               <span className={`inline-block text-[10px] font-bold px-1.5 py-0.5 rounded ${
-                                lead.priority === 'Urgent' ? 'bg-red-100 text-red-700' : 'bg-orange-100 text-orange-700'
+                                lead.priority === 'Urgent' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-800'
                               }`}>
                                 {lead.priority} Priority
                               </span>
@@ -742,7 +742,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                               <button
                                 onClick={() => handleStartEdit(lead)}
                                 title="Edit Inquiry & Add Notes"
-                                className="p-1.5 text-slate-500 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors border border-transparent hover:border-orange-200 cursor-pointer"
+                                className="p-1.5 text-slate-500 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-200 cursor-pointer"
                               >
                                 <Edit3 className="w-3.5 h-3.5" />
                               </button>
@@ -784,7 +784,7 @@ export default function AdminPortal({ isOpen, onClose }) {
             </button>
             <button
               onClick={onClose}
-              className="px-4 py-1.5 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors"
+              className="px-4 py-1.5 text-xs font-bold text-white bg-[#0047BA] hover:bg-blue-800 rounded-lg transition-colors cursor-pointer"
             >
               Close Portal
             </button>
@@ -802,7 +802,7 @@ export default function AdminPortal({ isOpen, onClose }) {
             <div className="p-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
               <div>
                 <h4 className="text-base font-bold text-slate-900 flex items-center gap-2">
-                  <Edit3 className="w-4 h-4 text-orange-600" />
+                  <Edit3 className="w-4 h-4 text-blue-600" />
                   <span>Edit Inquiry: {editingLead.name}</span>
                 </h4>
                 <span className="text-[11px] text-slate-500">
@@ -829,7 +829,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                   <select
                     value={editFormData.status}
                     onChange={(e) => setEditFormData(prev => ({ ...prev, status: e.target.value }))}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 cursor-pointer"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600 cursor-pointer"
                   >
                     {STATUS_OPTIONS.map(st => (
                       <option key={st} value={st}>{st}</option>
@@ -844,7 +844,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                   <select
                     value={editFormData.priority}
                     onChange={(e) => setEditFormData(prev => ({ ...prev, priority: e.target.value }))}
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 cursor-pointer"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600 cursor-pointer"
                   >
                     {PRIORITY_OPTIONS.map(pr => (
                       <option key={pr} value={pr}>{pr}</option>
@@ -861,7 +861,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                 <select
                   value={editFormData.assigned_to}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, assigned_to: e.target.value }))}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 cursor-pointer"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600 cursor-pointer"
                 >
                   <option value="">-- Unassigned (General Queue) --</option>
                   {ASSIGNED_OFFICERS.map(off => (
@@ -880,7 +880,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                   value={editFormData.service_category}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, service_category: e.target.value }))}
                   placeholder="e.g. Starlink Satellite Kit Installation"
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600"
                 />
               </div>
 
@@ -895,7 +895,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                     value={editFormData.organization}
                     onChange={(e) => setEditFormData(prev => ({ ...prev, organization: e.target.value }))}
                     placeholder="e.g. Milne Bay Cocoa Cooperative"
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600"
                   />
                 </div>
 
@@ -908,7 +908,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                     value={editFormData.phone}
                     onChange={(e) => setEditFormData(prev => ({ ...prev, phone: e.target.value }))}
                     placeholder="e.g. +675 82545274"
-                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500"
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600"
                   />
                 </div>
               </div>
@@ -933,7 +933,7 @@ export default function AdminPortal({ isOpen, onClose }) {
                   value={editFormData.notes}
                   onChange={(e) => setEditFormData(prev => ({ ...prev, notes: e.target.value }))}
                   placeholder="Record call summary, quotation amount sent, site inspection schedule, or IPA document status..."
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-orange-500 resize-none"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-blue-600 resize-none"
                 />
               </div>
 
@@ -942,14 +942,14 @@ export default function AdminPortal({ isOpen, onClose }) {
                 <button
                   type="button"
                   onClick={() => setEditingLead(null)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
+                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSavingEdit}
-                  className="px-4 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl transition-colors flex items-center gap-1.5 shadow-xs"
+                  className="px-4 py-2 text-xs font-bold text-white bg-[#0047BA] hover:bg-blue-700 rounded-xl transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
                 >
                   {isSavingEdit ? (
                     <>

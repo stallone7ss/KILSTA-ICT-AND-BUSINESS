@@ -189,8 +189,8 @@ export default function Services({ onSelectService }) {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
-            <Sparkles className="w-4 h-4 text-orange-500" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 tracking-wider uppercase mb-2">
+            <Sparkles className="w-4 h-4 text-amber-500" />
             Dual Fields of Expertise
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
@@ -207,8 +207,8 @@ export default function Services({ onSelectService }) {
             onClick={() => setActiveTab('all')}
             className={`px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'all'
-                ? 'bg-orange-500 text-white shadow-xs'
-                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
             }`}
           >
             All Solutions (10)
@@ -217,8 +217,8 @@ export default function Services({ onSelectService }) {
             onClick={() => setActiveTab('business')}
             className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'business'
-                ? 'bg-orange-500 text-white shadow-xs'
-                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
             }`}
           >
             <Briefcase className="w-4 h-4" />
@@ -228,8 +228,8 @@ export default function Services({ onSelectService }) {
             onClick={() => setActiveTab('ict')}
             className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap ${
               activeTab === 'ict'
-                ? 'bg-orange-500 text-white shadow-xs'
-                : 'text-slate-600 hover:text-orange-600 hover:bg-orange-50'
+                ? 'bg-emerald-600 text-white shadow-xs'
+                : 'text-slate-600 hover:text-emerald-600 hover:bg-emerald-50'
             }`}
           >
             <Wifi className="w-4 h-4" />
@@ -239,15 +239,15 @@ export default function Services({ onSelectService }) {
 
         {/* Dual Disciplines Overview Banner */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="p-6 bg-white border border-orange-200 rounded-2xl relative overflow-hidden shadow-xs">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="p-6 bg-white border border-blue-200 rounded-2xl relative overflow-hidden shadow-xs">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold">
+              <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold">
                 A
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900">Section A: Business Services</h3>
-                <span className="text-xs text-orange-600 font-semibold">Compliance, Formalization &amp; Fiscal Hygiene</span>
+                <span className="text-xs text-blue-700 font-semibold">Compliance, Formalization &amp; Fiscal Hygiene</span>
               </div>
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -255,15 +255,15 @@ export default function Services({ onSelectService }) {
             </p>
           </div>
 
-          <div className="p-6 bg-white border border-orange-200 rounded-2xl relative overflow-hidden shadow-xs">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="p-6 bg-white border border-emerald-200 rounded-2xl relative overflow-hidden shadow-xs">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold shadow-xs">
+              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold shadow-xs">
                 B
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900">Section B: ICT Services &amp; Trainings</h3>
-                <span className="text-xs text-orange-600 font-semibold">Satellites, Networks &amp; Digital Systems</span>
+                <span className="text-xs text-emerald-600 font-semibold">Satellites, Networks &amp; Digital Systems</span>
               </div>
             </div>
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -276,11 +276,12 @@ export default function Services({ onSelectService }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => {
             const Icon = service.icon;
+            const isIct = service.category.includes('ICT');
             
             return (
               <div
                 key={service.id}
-                className="group flex flex-col justify-between p-6 bg-white hover:bg-orange-50/20 border border-slate-200 hover:border-orange-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-orange-500/10 rounded-2xl transition-all duration-300"
+                className="group flex flex-col justify-between p-6 bg-white hover:bg-slate-50/70 border border-slate-200 hover:border-blue-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 rounded-2xl transition-all duration-300"
               >
                 <div>
                   {/* Category label & Icon */}
@@ -288,13 +289,17 @@ export default function Services({ onSelectService }) {
                     <span className="text-xs font-semibold text-slate-500">
                       {service.category}
                     </span>
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-orange-100 text-orange-600 group-hover:bg-orange-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+                      isIct 
+                        ? 'bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white' 
+                        : 'bg-blue-50 text-blue-700 group-hover:bg-blue-600 group-hover:text-white'
+                    }`}>
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title & Summary */}
-                  <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                  <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
                     {service.title}
                   </h4>
                   <p className="text-sm text-slate-600 leading-relaxed mb-5">
@@ -309,7 +314,7 @@ export default function Services({ onSelectService }) {
                     <ul className="space-y-1.5">
                       {service.deliverables.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-orange-500 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -324,7 +329,11 @@ export default function Services({ onSelectService }) {
                   </div>
                   <button
                     onClick={() => handleBook(service.title)}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-bold text-white rounded-xl shadow-xs transition-all duration-200 whitespace-nowrap focus:outline-none focus:ring-2 hover:scale-[1.02] active:scale-[0.98] ${
+                      isIct 
+                        ? 'bg-emerald-600 hover:bg-emerald-700 focus:ring-emerald-400' 
+                        : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-400'
+                    }`}
                   >
                     <span>Request Consultation</span>
                     <ArrowRight className="w-3.5 h-3.5" />

@@ -74,15 +74,15 @@ export const leads = pgTable('leads', {
     <div className="min-h-screen bg-white text-slate-800 flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
       
       {/* 1. State Credentials Trust Banner */}
-      <div className="bg-orange-50/80 border-b border-orange-200/80 py-2 px-4 text-xs text-slate-700">
+      <div className="bg-slate-50 border-b border-slate-200 py-2 px-4 text-xs text-slate-700">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-slate-700">
             <span className="flex items-center gap-1.5 font-bold text-slate-900">
-              <ShieldCheck className="w-4 h-4 text-orange-600" />
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
               <span>Certified PNG Entity</span>
             </span>
-            <span className="text-orange-300 hidden sm:inline" aria-hidden="true">·</span>
+            <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
             <span className="flex items-center gap-1.5">
               <img 
                 src="/assets/aistudio/image_56d8a76b.png" 
@@ -91,22 +91,22 @@ export const leads = pgTable('leads', {
               />
               <span className="text-slate-900 font-semibold">Milne Bay Province</span>
             </span>
-            <span className="text-orange-300 hidden sm:inline" aria-hidden="true">·</span>
+            <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
             <span>
               IPA Reg No: <strong className="font-mono text-slate-900 tracking-wider">6-129295384</strong>
             </span>
-            <span className="text-orange-300 hidden sm:inline" aria-hidden="true">·</span>
+            <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
             <span>
-              Tax ID (TIN): <strong className="font-mono text-orange-600 font-bold tracking-wider">502603269</strong>
+              Tax ID (TIN): <strong className="font-mono text-red-600 font-bold tracking-wider">502603269</strong>
             </span>
           </div>
 
           <div className="flex items-center gap-3.5 text-slate-700">
             <a 
               href="tel:+67582545274" 
-              className="hover:text-orange-600 transition-colors flex items-center gap-1 text-slate-700 font-medium"
+              className="hover:text-blue-700 transition-colors flex items-center gap-1 text-slate-700 font-medium"
             >
-              <Phone className="w-3.5 h-3.5 text-orange-600" />
+              <Phone className="w-3.5 h-3.5 text-blue-600" />
               <span className="font-mono">+675 82545274</span>
             </a>
             <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
@@ -145,17 +145,17 @@ export const leads = pgTable('leads', {
             <span className="text-slate-300 hidden md:inline" aria-hidden="true">·</span>
             <button
               onClick={() => setShowArchitectureModal(true)}
-              className="text-slate-700 hover:text-orange-600 transition-colors flex items-center gap-1 text-[11px] underline underline-offset-2 font-medium"
+              className="text-slate-700 hover:text-blue-700 transition-colors flex items-center gap-1 text-[11px] underline underline-offset-2 font-medium cursor-pointer"
             >
-              <FileCode2 className="w-3.5 h-3.5 text-orange-500" />
+              <FileCode2 className="w-3.5 h-3.5 text-blue-600" />
               <span>PostgreSQL Database Specs</span>
             </button>
             <span className="text-slate-300 hidden md:inline" aria-hidden="true">·</span>
             <button
               onClick={() => setShowAdminPortal(true)}
-              className="text-orange-700 hover:text-orange-800 font-bold transition-colors flex items-center gap-1 text-[11px] bg-orange-100 hover:bg-orange-200 px-2 py-0.5 rounded-md border border-orange-200 cursor-pointer shadow-2xs"
+              className="text-blue-700 hover:text-blue-800 font-bold transition-colors flex items-center gap-1 text-[11px] bg-blue-50 hover:bg-blue-100 px-2 py-0.5 rounded-md border border-blue-200 cursor-pointer shadow-2xs"
             >
-              <ShieldCheck className="w-3.5 h-3.5 text-orange-600" />
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>Admin Portal</span>
             </button>
           </div>
@@ -174,26 +174,26 @@ export const leads = pgTable('leads', {
               alt="KILSTA Business & ICT Consultants Emblem"
               className="w-10 h-10 object-contain rounded-full shadow-xs group-hover:scale-105 transition-transform"
             />
-            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-orange-600 transition-colors">
+            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">
               KILSTA Consultants
             </span>
           </a>
 
           {/* Zone 2: 4-5 single-line clean text links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
-            <a href="#about" className="hover:text-orange-600 transition-colors whitespace-nowrap shrink-0">
+            <a href="#about" className="hover:text-blue-700 transition-colors whitespace-nowrap shrink-0">
               About &amp; History
             </a>
-            <a href="#services" className="hover:text-orange-600 transition-colors whitespace-nowrap shrink-0">
+            <a href="#services" className="hover:text-blue-700 transition-colors whitespace-nowrap shrink-0">
               Services Portfolio
             </a>
-            <a href="#starlink" className="hover:text-orange-600 transition-colors whitespace-nowrap shrink-0">
+            <a href="#starlink" className="hover:text-blue-700 transition-colors whitespace-nowrap shrink-0">
               Starlink Deployment
             </a>
-            <a href="#team" className="hover:text-orange-600 transition-colors whitespace-nowrap shrink-0">
+            <a href="#team" className="hover:text-blue-700 transition-colors whitespace-nowrap shrink-0">
               Credentials Grid
             </a>
-            <a href="#contact" className="hover:text-orange-600 transition-colors whitespace-nowrap shrink-0">
+            <a href="#contact" className="hover:text-blue-700 transition-colors whitespace-nowrap shrink-0">
               Contact Desk
             </a>
           </nav>
@@ -202,14 +202,14 @@ export const leads = pgTable('leads', {
           <div className="flex items-center gap-2.5 shrink-0">
             <button
               onClick={() => setShowAdminPortal(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-orange-600 bg-white hover:bg-orange-50 border border-slate-200 hover:border-orange-200 rounded-xl transition-all shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-blue-700 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 rounded-xl transition-all shadow-2xs cursor-pointer"
             >
-              <Lock className="w-3.5 h-3.5 text-orange-600" />
+              <Lock className="w-3.5 h-3.5 text-blue-600" />
               <span>Admin Portal</span>
             </button>
             <a
               href="#contact"
-              className="px-4 py-2 text-xs sm:text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap shrink-0"
+              className="px-4 py-2 text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap shrink-0"
             >
               Request Consultation
             </a>
@@ -219,12 +219,12 @@ export const leads = pgTable('leads', {
       </header>
 
       {/* 3. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-orange-50/40 to-white pt-12 pb-20 border-b border-slate-200">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-blue-50/25 to-emerald-50/20 pt-12 pb-20 border-b border-slate-200">
         {/* Animated starry spark background */}
         <StarSparkles count={34} />
 
         {/* Subtle decorative background glow */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-orange-400/10 blur-3xl pointer-events-none rounded-full" />
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-blue-500/10 blur-3xl pointer-events-none rounded-full" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
@@ -232,26 +232,26 @@ export const leads = pgTable('leads', {
           <div className="max-w-3xl mx-auto text-center mb-10">
             {/* Prominent Animated Emblem Logo with Star Sparkles */}
             <div className="relative mx-auto w-36 h-36 sm:w-44 sm:h-44 mb-5 transition-transform hover:scale-105 duration-300 animate-float">
-              <div className="absolute inset-0 bg-orange-400/20 rounded-full blur-xl pointer-events-none animate-pulse-halo" />
+              <div className="absolute inset-0 bg-blue-600/15 rounded-full blur-xl pointer-events-none animate-pulse-halo" />
               
-              {/* Surrounding Sparkling Stars */}
+              {/* Surrounding Sparkling Stars matching KILSTA logo 4 colors */}
               <span className="absolute -top-2 -right-2 text-amber-500 animate-star-sparkle w-6 h-6 pointer-events-none z-20">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#f59e0b]">
                   <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
                 </svg>
               </span>
-              <span className="absolute -bottom-2 -left-2 text-orange-500 animate-star-sparkle w-5 h-5 pointer-events-none z-20" style={{ animationDelay: '1.2s' }}>
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#ea580c]">
+              <span className="absolute -bottom-2 -left-2 text-emerald-600 animate-star-sparkle w-5 h-5 pointer-events-none z-20" style={{ animationDelay: '1.2s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#00a651]">
                   <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
                 </svg>
               </span>
-              <span className="absolute top-1/2 -left-4 text-amber-400 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '0.6s' }}>
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+              <span className="absolute top-1/2 -left-4 text-blue-600 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '0.6s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#0047ba]">
                   <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
                 </svg>
               </span>
-              <span className="absolute top-1/3 -right-3 text-orange-400 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '1.8s' }}>
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+              <span className="absolute top-1/3 -right-3 text-red-600 animate-star-twinkle w-4 h-4 pointer-events-none z-20" style={{ animationDelay: '1.8s' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full filter drop-shadow-[0_0_6px_#dc2626]">
                   <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
                 </svg>
               </span>
@@ -267,19 +267,19 @@ export const leads = pgTable('leads', {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               KILSTA Business &amp; ICT Consultants
             </h2>
-            <p className="text-xs sm:text-sm font-bold text-orange-600 tracking-widest uppercase mt-2">
+            <p className="text-xs sm:text-sm font-bold text-blue-700 tracking-widest uppercase mt-2">
               Certified Corporate &amp; Technology Advisory
             </p>
 
             {/* State Credentials & Physical HQ Strip */}
             <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 bg-white border border-slate-200 px-4 py-2 rounded-2xl text-xs text-slate-700 shadow-xs">
               <div className="flex items-center gap-1.5 font-bold text-slate-900">
-                <ShieldCheck className="w-4 h-4 text-orange-600" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 <span>IPA Reg: <strong className="font-mono text-slate-900">6-129295384</strong></span>
               </div>
               <span className="text-slate-300 hidden sm:inline" aria-hidden="true">|</span>
               <div className="flex items-center gap-1.5 font-semibold text-slate-800">
-                <span>IRC Tax ID: <strong className="font-mono text-orange-600 font-bold">502603269</strong></span>
+                <span>IRC Tax ID: <strong className="font-mono text-red-600 font-bold">502603269</strong></span>
               </div>
               <span className="text-slate-300 hidden sm:inline" aria-hidden="true">|</span>
               <div className="flex items-center gap-1.5 text-slate-700">
@@ -288,7 +288,7 @@ export const leads = pgTable('leads', {
                   alt="Milne Bay Province Flag" 
                   className="w-4 h-2.5 object-cover rounded-xs border border-slate-300 shrink-0" 
                 />
-                <MapPin className="w-3.5 h-3.5 text-orange-600" />
+                <MapPin className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Gumini Village, Huhu LLG, Alotau, Milne Bay Province</span>
               </div>
             </div>
@@ -298,8 +298,8 @@ export const leads = pgTable('leads', {
           <div className="max-w-4xl mx-auto text-center space-y-6">
             
             {/* Motto Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-xs font-bold text-orange-700 shadow-xs">
-              <Sparkles className="w-4 h-4 text-orange-500" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-800 shadow-xs">
+              <Sparkles className="w-4 h-4 text-amber-500" />
               <span>Enhancing Through Business &amp; ICT Innovations</span>
             </div>
 
@@ -317,14 +317,14 @@ export const leads = pgTable('leads', {
             <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
               <a
                 href="#services"
-                className="px-6 py-3.5 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-sm transition-all flex items-center gap-2 whitespace-nowrap"
+                className="px-6 py-3.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-sm transition-all flex items-center gap-2 whitespace-nowrap"
               >
                 <span>Explore Dual Expertise</span>
                 <ChevronRight className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3.5 text-sm font-bold text-slate-800 bg-white hover:bg-orange-50 border border-slate-300 hover:border-orange-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2 whitespace-nowrap"
+                className="px-6 py-3.5 text-sm font-bold text-slate-800 bg-white hover:bg-emerald-50 border border-slate-300 hover:border-emerald-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2 whitespace-nowrap"
               >
                 <span>Initiate Project Inquiry</span>
               </a>
@@ -333,15 +333,15 @@ export const leads = pgTable('leads', {
             {/* Verified Compliance & Ownership Badges */}
             <div className="pt-8 border-t border-slate-200 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs text-slate-700 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-orange-600" />
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
                 <span>100% Papua New Guinea Owned</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-orange-600" />
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
                 <span>Investment Promotion Authority (IPA) Registered</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-orange-600" />
+                <CheckCircle className="w-4 h-4 text-emerald-600" />
                 <span>Internal Revenue Commission (IRC) Compliant</span>
               </div>
             </div>
@@ -359,8 +359,8 @@ export const leads = pgTable('leads', {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
-              <Compass className="w-4 h-4 text-orange-600" />
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 tracking-wider uppercase mb-2">
+              <Compass className="w-4 h-4 text-emerald-600" />
               Institutional Heritage &amp; Mission
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
@@ -376,7 +376,7 @@ export const leads = pgTable('leads', {
             {/* Pillar 1 */}
             <div className="bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow rounded-2xl p-7 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-lg mb-5">
+                <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg mb-5">
                   01
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -386,7 +386,7 @@ export const leads = pgTable('leads', {
                   Too many capable community groups, agricultural producers, and contractors in PNG are locked out of commercial finance and state procurement due to incomplete IPA records or unfiled IRC tax documentation. KILSTA systematizes formal registration and bookkeeping discipline.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-orange-600 font-semibold">
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-blue-700 font-semibold">
                 Objective: 100% Statutory Tender Eligibility
               </div>
             </div>
@@ -394,7 +394,7 @@ export const leads = pgTable('leads', {
             {/* Pillar 2 */}
             <div className="bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow rounded-2xl p-7 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-orange-500 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
+                <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg mb-5 shadow-xs">
                   02
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -404,7 +404,7 @@ export const leads = pgTable('leads', {
                   Rugged topography and island geography make traditional terrestrial fibre prohibitively expensive for rural Milne Bay. By engineering professional Starlink installations, solar-backed UPS setups, and structured Wi-Fi mesh, KILSTA delivers low-latency connectivity to remote outposts.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-orange-600 font-semibold">
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-emerald-700 font-semibold">
                 Objective: Zero Communication Blackouts
               </div>
             </div>
@@ -412,7 +412,7 @@ export const leads = pgTable('leads', {
             {/* Pillar 3 */}
             <div className="bg-white border border-slate-200/90 shadow-xs hover:shadow-md transition-shadow rounded-2xl p-7 flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-lg mb-5">
+                <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg mb-5">
                   03
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -422,7 +422,7 @@ export const leads = pgTable('leads', {
                   Technology without skills transfer creates external dependency. KILSTA's training division conducts practical administrative bookkeeping, computing seminars, and technical troubleshooting workshops so local staff independently operate their systems.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-orange-600 font-semibold">
+              <div className="mt-6 pt-4 border-t border-slate-100 text-xs text-amber-800 font-semibold">
                 Objective: Sustainable Community Self-Reliance
               </div>
             </div>
@@ -436,15 +436,15 @@ export const leads = pgTable('leads', {
       <section id="starlink" className="py-20 bg-white border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="bg-gradient-to-r from-orange-50/80 via-white to-orange-50/50 border border-orange-200/90 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xs">
+          <div className="bg-gradient-to-r from-blue-50/70 via-white to-emerald-50/40 border border-blue-200/90 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-xs">
             {/* Celestial Star Sparkles Ambiance */}
             <StarSparkles count={20} />
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               
               <div className="lg:col-span-7 space-y-4">
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase">
-                  <Satellite className="w-4 h-4 text-orange-600" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 tracking-wider uppercase">
+                  <Satellite className="w-4 h-4 text-blue-600" />
                   <span>High-Priority Rural Service</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -456,19 +456,19 @@ export const leads = pgTable('leads', {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Rigid cyclone-rated roof &amp; tower pole mounts</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Ethernet bypass &amp; multi-building LAN distribution</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Lightning surge suppression &amp; UPS power matching</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <CheckCircle className="w-4 h-4 text-orange-600 shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Field obstruction calibration &amp; speed certification</span>
                   </div>
                 </div>
@@ -479,16 +479,16 @@ export const leads = pgTable('leads', {
                       setSelectedService('Starlink Satellite Kit Installation');
                       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="px-5 py-3 text-xs sm:text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2"
+                    className="px-5 py-3 text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2 cursor-pointer"
                   >
                     <Satellite className="w-4 h-4" />
                     <span>Book Starlink Site Assessment</span>
                   </button>
                   <a
                     href="tel:+67582545274"
-                    className="px-5 py-3 text-xs sm:text-sm font-bold text-slate-800 bg-white hover:bg-orange-50 border border-slate-300 hover:border-orange-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl transition-all flex items-center gap-2"
+                    className="px-5 py-3 text-xs sm:text-sm font-bold text-slate-800 bg-white hover:bg-blue-50 border border-slate-300 hover:border-blue-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl transition-all flex items-center gap-2"
                   >
-                    <Phone className="w-4 h-4 text-orange-600" />
+                    <Phone className="w-4 h-4 text-blue-600" />
                     <span>Call Starlink Field Desk</span>
                   </a>
                 </div>
@@ -496,7 +496,7 @@ export const leads = pgTable('leads', {
 
               {/* Right Column: Real Milne Bay Maritime & Island Deployment Showcase */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="w-full rounded-2xl overflow-hidden border border-orange-200/90 bg-white shadow-xl group transition-all duration-300 hover:border-orange-400">
+                <div className="w-full rounded-2xl overflow-hidden border border-blue-200/90 bg-white shadow-xl group transition-all duration-300 hover:border-blue-400">
                   {/* Photo Container */}
                   <div className="relative h-60 sm:h-68 w-full overflow-hidden">
                     <img
@@ -522,7 +522,7 @@ export const leads = pgTable('leads', {
                       <span className="font-semibold text-slate-100 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
                         Island &amp; Coastal LLGs
                       </span>
-                      <span className="font-mono font-bold text-orange-400 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
+                      <span className="font-mono font-bold text-amber-400 bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">
                         150–250 Mbps LEO
                       </span>
                     </div>
@@ -532,10 +532,10 @@ export const leads = pgTable('leads', {
                   <div className="p-5 space-y-2.5 bg-white">
                     <div className="flex items-center justify-between text-xs font-bold text-slate-900">
                       <span className="flex items-center gap-1.5">
-                        <Satellite className="w-4 h-4 text-orange-600" />
+                        <Satellite className="w-4 h-4 text-blue-600" />
                         <span>Bridging Geographical Isolation</span>
                       </span>
-                      <span className="text-xs text-orange-600 font-mono font-bold">Turnkey Service</span>
+                      <span className="text-xs text-blue-700 font-mono font-bold">Turnkey Service</span>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed">
                       Deploying high-speed satellite broadband to remote island schools, aid posts, tourist eco-lodges, and maritime communities across Milne Bay's archipelagos.
@@ -589,7 +589,7 @@ export const leads = pgTable('leads', {
               </p>
               <div className="text-[11px] text-slate-600 font-mono space-y-0.5">
                 <div>IPA No: <strong className="text-slate-800">6-129295384</strong></div>
-                <div>TIN No: <strong className="text-orange-600 font-bold">502603269</strong></div>
+                <div>TIN No: <strong className="text-red-600 font-bold">502603269</strong></div>
               </div>
 
               {/* Social Channels */}
@@ -638,11 +638,11 @@ export const leads = pgTable('leads', {
                 Corporate Tracks
               </span>
               <ul className="space-y-1.5 font-medium">
-                <li><a href="#about" className="hover:text-orange-600 transition-colors">Operational History</a></li>
-                <li><a href="#services" className="hover:text-orange-600 transition-colors">Section A: Business Services</a></li>
-                <li><a href="#services" className="hover:text-orange-600 transition-colors">Section B: ICT &amp; Training</a></li>
-                <li><a href="#starlink" className="hover:text-orange-600 transition-colors">Starlink Satellite Kits</a></li>
-                <li><a href="#team" className="hover:text-orange-600 transition-colors">Executive Management</a></li>
+                <li><a href="#about" className="hover:text-blue-700 transition-colors">Operational History</a></li>
+                <li><a href="#services" className="hover:text-blue-700 transition-colors">Section A: Business Services</a></li>
+                <li><a href="#services" className="hover:text-blue-700 transition-colors">Section B: ICT &amp; Training</a></li>
+                <li><a href="#starlink" className="hover:text-blue-700 transition-colors">Starlink Satellite Kits</a></li>
+                <li><a href="#team" className="hover:text-blue-700 transition-colors">Executive Management</a></li>
               </ul>
             </div>
 
@@ -653,19 +653,19 @@ export const leads = pgTable('leads', {
               </span>
               <ul className="space-y-2 font-medium">
                 <li className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-orange-600" />
-                  <a href="tel:+67582545274" className="hover:text-orange-600 transition-colors font-mono">
+                  <Phone className="w-3.5 h-3.5 text-blue-600" />
+                  <a href="tel:+67582545274" className="hover:text-blue-700 transition-colors font-mono">
                     +675 82545274
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-orange-600" />
-                  <a href="mailto:kilsta2023@gmail.com" className="hover:text-orange-600 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-emerald-600" />
+                  <a href="mailto:kilsta2023@gmail.com" className="hover:text-blue-700 transition-colors">
                     kilsta2023@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-2 pt-1 text-slate-600">
-                  <MapPin className="w-3.5 h-3.5 text-orange-600 shrink-0 mt-0.5" />
+                  <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                   <span>Gumini Village, Huhu LLG, Alotau District, Milne Bay Province, PNG</span>
                 </li>
               </ul>
@@ -681,9 +681,9 @@ export const leads = pgTable('leads', {
               </p>
               <button
                 onClick={() => setShowArchitectureModal(true)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-orange-50 border border-slate-300 hover:border-orange-300 rounded-lg text-[11px] font-semibold text-slate-800 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-blue-50 border border-slate-300 hover:border-blue-300 rounded-lg text-[11px] font-semibold text-slate-800 transition-colors shadow-2xs cursor-pointer"
               >
-                <FileCode2 className="w-3.5 h-3.5 text-orange-600" />
+                <FileCode2 className="w-3.5 h-3.5 text-blue-600" />
                 <span>View schema.ts &amp; Architecture</span>
               </button>
             </div>
@@ -712,14 +712,14 @@ export const leads = pgTable('leads', {
             {/* Modal Header */}
             <div className="p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center">
                   <Database className="w-4 h-4" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-slate-900">
                     PostgreSQL Database Architecture &amp; ORM
                   </h3>
-                  <span className="text-xs text-orange-600 font-semibold">
+                  <span className="text-xs text-blue-700 font-semibold">
                     Managed Cloud PostgreSQL + Drizzle ORM + Connection Pooling
                   </span>
                 </div>
@@ -734,7 +734,7 @@ export const leads = pgTable('leads', {
 
             {/* Modal Body */}
             <div className="p-6 overflow-y-auto space-y-5 text-xs text-slate-600 leading-relaxed font-sans">
-              <div className="bg-orange-50/70 p-4 rounded-xl border border-orange-200 text-slate-700 space-y-2">
+              <div className="bg-blue-50/70 p-4 rounded-xl border border-blue-200 text-slate-700 space-y-2">
                 <span className="text-xs font-bold text-slate-900 uppercase tracking-wider block">
                   PostgreSQL Pipeline Mechanics
                 </span>
@@ -753,7 +753,7 @@ export const leads = pgTable('leads', {
                   </span>
                   <button
                     onClick={copySchemaSql}
-                    className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-orange-500 hover:bg-orange-600 text-white transition-colors text-[11px] font-semibold"
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-700 text-white transition-colors text-[11px] font-semibold cursor-pointer"
                   >
                     {copiedCode ? <Check className="w-3 h-3 text-white" /> : <Copy className="w-3 h-3" />}
                     <span>{copiedCode ? 'Copied' : 'Copy Schema'}</span>
@@ -794,7 +794,7 @@ export const leads = pgTable('leads', {
                 href="https://console.firebase.google.com/project/velvety-joy-5sjh2/firestore/databases/ai-studio-kilstabusinessic-7a1e1b24-5472-4dd7-9644-64c1a73de32a/data"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-orange-700 bg-orange-100 hover:bg-orange-200 rounded-lg transition-colors border border-orange-200"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-blue-800 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors border border-blue-200"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>View Requests in Firebase Console</span>
@@ -802,7 +802,7 @@ export const leads = pgTable('leads', {
 
               <button
                 onClick={() => setShowArchitectureModal(false)}
-                className="px-4 py-2 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors"
+                className="px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors cursor-pointer"
               >
                 Close Architecture View
               </button>

@@ -93,8 +93,8 @@ export default function Team() {
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
-            <UserCheck className="w-4 h-4 text-orange-500" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 tracking-wider uppercase mb-2">
+            <UserCheck className="w-4 h-4 text-emerald-600" />
             Leadership &amp; Academic Pedigree
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
@@ -110,24 +110,24 @@ export default function Team() {
           {leaders.map((leader, idx) => (
             <div 
               key={idx}
-              className="flex flex-col justify-between bg-white border border-slate-200 hover:border-orange-400 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-orange-500/10 rounded-2xl p-7 transition-all duration-300 group shadow-xs"
+              className="flex flex-col justify-between bg-white border border-slate-200 hover:border-blue-500 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-500/10 rounded-2xl p-7 transition-all duration-300 group shadow-xs"
             >
               <div>
                 {/* Card Header & Avatar Badge */}
                 <div className="flex items-start justify-between mb-5">
-                  <div className="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 border border-orange-200 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:scale-105 flex items-center justify-center font-extrabold text-xl transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 border border-blue-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:scale-105 flex items-center justify-center font-extrabold text-xl transition-all duration-300">
                     {leader.name.split(' ').slice(1).map(n => n[0]).join('')}
                   </div>
-                  <span className="text-xs font-semibold text-orange-700 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200">
+                  <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
                     {leader.roleTag}
                   </span>
                 </div>
 
                 {/* Name & Title */}
-                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                   {leader.name}
                 </h3>
-                <p className="text-sm font-semibold text-orange-600 mt-0.5 mb-4">
+                <p className="text-sm font-semibold text-blue-700 mt-0.5 mb-4">
                   {leader.title}
                 </p>
 
@@ -139,14 +139,14 @@ export default function Team() {
                 {/* Academic Credentials */}
                 <div className="border-t border-slate-100 pt-5 mb-5">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
-                    <GraduationCap className="w-4 h-4 text-orange-500" />
+                    <GraduationCap className="w-4 h-4 text-blue-600" />
                     <span>Accredited Qualifications</span>
                   </div>
                   <div className="space-y-3">
                     {leader.qualifications.map((qual, qIdx) => (
                       <div key={qIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/70">
                         <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                          <Award className="w-3.5 h-3.5 text-orange-500 shrink-0" />
+                          <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                           <span>{qual.degree}</span>
                         </div>
                         <div className="text-[11px] text-slate-600 mt-1 pl-5">
@@ -166,7 +166,7 @@ export default function Team() {
                     {leader.specialties.map((item, sIdx) => (
                       <span 
                         key={sIdx}
-                        className="text-[11px] text-slate-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200/80"
+                        className="text-[11px] text-slate-700 bg-slate-50 px-2 py-0.5 rounded border border-slate-200"
                       >
                         {item}
                       </span>
@@ -179,9 +179,9 @@ export default function Team() {
               <div className="border-t border-slate-100 pt-4">
                 <button
                   onClick={scrollToContact}
-                  className="w-full py-2.5 px-4 text-xs font-bold text-slate-700 bg-slate-50 hover:bg-orange-500 hover:text-white hover:scale-[1.02] active:scale-[0.98] rounded-xl transition-all duration-200 border border-slate-200 flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full py-2.5 px-4 text-xs font-bold text-slate-700 bg-slate-50 hover:bg-blue-600 hover:text-white hover:scale-[1.02] active:scale-[0.98] rounded-xl transition-all duration-200 border border-slate-200 flex items-center justify-center gap-2 shadow-xs cursor-pointer"
                 >
-                  <Mail className="w-3.5 h-3.5 text-orange-500 group-hover:text-white" />
+                  <Mail className="w-3.5 h-3.5 text-blue-600 group-hover:text-white" />
                   <span>Consult with {leader.name.split(' ')[1]}</span>
                 </button>
               </div>
@@ -191,9 +191,9 @@ export default function Team() {
         </div>
 
         {/* Credential Authenticity Banner */}
-        <div className="mt-12 p-5 bg-orange-50/70 border border-orange-200/80 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-5 bg-gradient-to-r from-blue-50/60 via-slate-50 to-emerald-50/60 border border-slate-200 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
@@ -203,7 +203,7 @@ export default function Team() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-700 font-mono shrink-0 bg-white px-3 py-1.5 rounded-lg border border-orange-200 shadow-xs">
+          <div className="flex items-center gap-2 text-xs text-slate-700 font-mono shrink-0 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-xs">
             <img 
               src="/assets/aistudio/image_56d8a76b.png" 
               alt="Milne Bay Province Flag" 

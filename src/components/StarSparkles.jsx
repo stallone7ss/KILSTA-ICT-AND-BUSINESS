@@ -17,12 +17,12 @@ export default function StarSparkles({ count = 28, className = "" }) {
       const duration = 2.4 + ((i * 0.35) % 1.8);
       const isSparkle = i % 2 === 0;
       const color = i % 4 === 0 
-        ? '#F97316' // Vibrant orange
+        ? '#0047BA' // KILSTA Logo Star Royal Blue
         : i % 4 === 1 
-        ? '#FB923C' // Warm amber orange
+        ? '#00A651' // KILSTA Logo Outer Ring Emerald Green
         : i % 4 === 2
-        ? '#FBBF24' // Golden star yellow
-        : '#EA580C'; // Deep orange
+        ? '#FACC15' // KILSTA Logo Flame & Wordmark Golden Yellow
+        : '#DC2626'; // KILSTA Logo Inner Disc Crimson Red
 
       return {
         id: i,
@@ -50,7 +50,7 @@ export default function StarSparkles({ count = 28, className = "" }) {
       x: x + (Math.random() - 0.5) * 60,
       y: y + (Math.random() - 0.5) * 60,
       size: 16 + Math.random() * 12,
-      color: idx % 2 === 0 ? '#F97316' : '#FBBF24'
+      color: idx % 4 === 0 ? '#0047BA' : idx % 4 === 1 ? '#00A651' : idx % 4 === 2 ? '#FACC15' : '#DC2626'
     }));
 
     setBursts(prev => [...prev.slice(-18), ...newBursts]);
@@ -82,7 +82,7 @@ export default function StarSparkles({ count = 28, className = "" }) {
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="w-full h-full filter drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]"
+            className="w-full h-full filter drop-shadow-[0_0_8px_currentColor]"
           >
             <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
           </svg>

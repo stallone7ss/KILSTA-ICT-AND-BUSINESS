@@ -2,10 +2,14 @@
 
 @layer base {
   :root {
-    --color-orange-primary: #F97316;
-    --color-orange-dark: #EA580C;
-    --color-orange-light: #FB923C;
-    --color-orange-subtle: #FFF7ED;
+    --color-kilsta-blue: #0047BA;
+    --color-kilsta-blue-dark: #00338D;
+    --color-kilsta-blue-subtle: #EFF6FF;
+    --color-kilsta-green: #00A651;
+    --color-kilsta-green-dark: #00803D;
+    --color-kilsta-green-subtle: #F0FDF4;
+    --color-kilsta-gold: #FACC15;
+    --color-kilsta-red: #DC2626;
     --color-neutral-bg: #FFFFFF;
     --color-neutral-surface: #F8FAFC;
     --color-neutral-border: #E2E8F0;
@@ -117,7 +121,7 @@
   40%, 60% {
     opacity: 1;
     transform: scale(1.15) rotate(90deg);
-    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.8)) drop-shadow(0 0 14px rgba(251, 146, 60, 0.6));
+    filter: drop-shadow(0 0 8px rgba(0, 71, 186, 0.7)) drop-shadow(0 0 14px rgba(0, 166, 81, 0.5));
   }
 }
 
@@ -129,7 +133,7 @@
   50% {
     opacity: 0.95;
     transform: scale(1.15);
-    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.75));
+    filter: drop-shadow(0 0 6px rgba(0, 71, 186, 0.65));
   }
 }
 

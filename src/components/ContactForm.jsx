@@ -112,8 +112,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-orange-600 tracking-wider uppercase mb-2">
-            <Mail className="w-4 h-4 text-orange-500" />
+          <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-700 tracking-wider uppercase mb-2">
+            <Mail className="w-4 h-4 text-emerald-600" />
             Direct Engagement Portal
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">
@@ -139,7 +139,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                 
                 {/* Physical Location */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl overflow-hidden border border-orange-200 flex items-center justify-center shrink-0 mt-0.5 bg-orange-50">
+                  <div className="w-10 h-10 rounded-xl overflow-hidden border border-emerald-200 flex items-center justify-center shrink-0 mt-0.5 bg-emerald-50">
                     <img 
                       src="/assets/aistudio/image_56d8a76b.png" 
                       alt="Milne Bay Province Flag" 
@@ -164,7 +164,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
 
                 {/* Direct Dialing */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0 mt-0.5">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -173,7 +173,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     </span>
                     <a 
                       href="tel:+67582545274" 
-                      className="text-base font-bold text-slate-900 hover:text-orange-600 transition-colors inline-block mt-0.5 tracking-wide"
+                      className="text-base font-bold text-slate-900 hover:text-blue-700 transition-colors inline-block mt-0.5 tracking-wide"
                     >
                       +675 82545274
                     </a>
@@ -185,7 +185,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
 
                 {/* Official Email */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -194,7 +194,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     </span>
                     <a 
                       href="mailto:kilsta2023@gmail.com" 
-                      className="text-sm font-semibold text-slate-900 hover:text-orange-600 transition-colors inline-block mt-0.5"
+                      className="text-sm font-semibold text-slate-900 hover:text-blue-700 transition-colors inline-block mt-0.5"
                     >
                       kilsta2023@gmail.com
                     </a>
@@ -206,7 +206,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
 
                 {/* Social Networks Channel */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
                     <Share2 className="w-5 h-5" />
                   </div>
                   <div>
@@ -253,9 +253,9 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                   <span className="text-[11px] text-slate-500 block font-medium">IPA Registration</span>
                   <span className="text-xs font-bold text-slate-900 font-mono">6-129295384</span>
                 </div>
-                <div className="bg-orange-50 p-3 rounded-xl border border-orange-200">
-                  <span className="text-[11px] text-orange-700 block font-medium">Tax ID (TIN)</span>
-                  <span className="text-xs font-bold text-orange-600 font-mono">502603269</span>
+                <div className="bg-red-50 p-3 rounded-xl border border-red-200">
+                  <span className="text-[11px] text-red-700 block font-medium">Tax ID (TIN)</span>
+                  <span className="text-xs font-bold text-red-600 font-mono">502603269</span>
                 </div>
               </div>
 
@@ -263,8 +263,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
 
             {/* Hyperdrive Pipeline Architecture Callout */}
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs">
-              <div className="flex items-center gap-2 text-xs font-bold text-orange-600 mb-2 uppercase tracking-wide">
-                <Server className="w-4 h-4 text-orange-500" />
+              <div className="flex items-center gap-2 text-xs font-bold text-blue-700 mb-2 uppercase tracking-wide">
+                <Server className="w-4 h-4 text-blue-600" />
                 <span>Cloudflare Hyperdrive Gateway</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -291,13 +291,13 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
               {/* Result State (Success Confirmation) */}
               {result ? (
                 <div className="py-6 space-y-6 transition-all duration-300">
-                  <div className="p-6 bg-orange-50 border border-orange-300 rounded-2xl shadow-sm transition-all duration-300">
+                  <div className="p-6 bg-emerald-50 border border-emerald-300 rounded-2xl shadow-sm transition-all duration-300">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0 animate-bounce" style={{ animationIterationCount: 2 }}>
+                      <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 animate-bounce" style={{ animationIterationCount: 2 }}>
                         <CheckCircle className="w-7 h-7" />
                       </div>
                       <div className="flex-1">
-                        <span className="text-xs font-bold uppercase tracking-wider text-orange-600">
+                        <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">
                           Database Record Ingested
                         </span>
                         <h4 className="text-xl font-bold text-slate-900 mt-1">
@@ -310,24 +310,24 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     </div>
 
                     {/* Metadata Table */}
-                    <div className="mt-6 pt-5 border-t border-orange-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                    <div className="mt-6 pt-5 border-t border-emerald-200 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                       <div>
                         <span className="text-slate-500 block">PostgreSQL Lead ID:</span>
                         <span className="font-mono text-slate-900 select-all break-all">{result.id}</span>
                       </div>
                       <div>
                         <span className="text-slate-500 block">Firebase Document:</span>
-                        <span className="font-mono text-orange-600 font-semibold select-all break-all">
+                        <span className="font-mono text-blue-700 font-semibold select-all break-all">
                           {result.firebase_id ? `leads/${result.firebase_id}` : 'Synced to Firestore'}
                         </span>
                       </div>
                       <div>
                         <span className="text-slate-500 block">Service Track:</span>
-                        <span className="font-semibold text-orange-600">{result.service_category}</span>
+                        <span className="font-semibold text-blue-700">{result.service_category}</span>
                       </div>
                       <div>
                         <span className="text-slate-500 block">Status &amp; Cloud Sync:</span>
-                        <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-orange-500 text-white">
+                        <span className="inline-block px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-600 text-white">
                           {result.status} · Synced
                         </span>
                       </div>
@@ -338,7 +338,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     <button
                       type="button"
                       onClick={handleResetForm}
-                      className="flex-1 py-3 px-4 text-xs font-bold text-white bg-orange-500 hover:bg-orange-600 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2"
+                      className="flex-1 py-3 px-4 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-xl shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <RotateCcw className="w-4 h-4" />
                       <span>Submit Another Inquiry</span>
@@ -347,9 +347,9 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       href="https://console.firebase.google.com/project/velvety-joy-5sjh2/firestore/databases/ai-studio-kilstabusinessic-7a1e1b24-5472-4dd7-9644-64c1a73de32a/data"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="py-3 px-4 text-xs font-bold text-orange-800 bg-orange-100 hover:bg-orange-200 border border-orange-200 rounded-xl transition-colors flex items-center justify-center gap-2"
+                      className="py-3 px-4 text-xs font-bold text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl transition-colors flex items-center justify-center gap-2"
                     >
-                      <ExternalLink className="w-4 h-4 text-orange-600" />
+                      <ExternalLink className="w-4 h-4 text-blue-600" />
                       <span>View in Firebase Console</span>
                     </a>
                   </div>
@@ -383,8 +383,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                           placeholder="e.g. Samuel Kora"
                           disabled={isSubmitting}
                           className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
-                            validationErrors.name ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-orange-500'
-                          } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-colors`}
+                            validationErrors.name ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
+                          } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors`}
                         />
                       </div>
                       {validationErrors.name && (
@@ -404,8 +404,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         placeholder="e.g. samuel@cooperative.org.pg"
                         disabled={isSubmitting}
                         className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
-                          validationErrors.email ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-orange-500'
-                        } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-colors`}
+                          validationErrors.email ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
+                        } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors`}
                       />
                       {validationErrors.email && (
                         <p className="text-red-600 text-xs mt-1">{validationErrors.email}</p>
@@ -426,7 +426,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         onChange={handleChange}
                         placeholder="e.g. +675 7xxxxxxx"
                         disabled={isSubmitting}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                       />
                     </div>
 
@@ -441,7 +441,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         onChange={handleChange}
                         placeholder="e.g. Milne Bay Cocoa Farmers Assoc."
                         disabled={isSubmitting}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors"
+                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                       />
                     </div>
                   </div>
@@ -456,7 +456,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       value={formData.service_category}
                       onChange={handleChange}
                       disabled={isSubmitting}
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-colors"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                     >
                       {SERVICE_OPTIONS.map((opt, idx) => (
                         <option key={idx} value={opt} className="bg-white text-slate-900">
@@ -482,8 +482,8 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       placeholder="Outline your requirements (e.g. number of staff to train, Starlink installation location, business registration details, or network requirements)..."
                       disabled={isSubmitting}
                       className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
-                        validationErrors.message ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-orange-500'
-                      } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 transition-colors resize-none`}
+                        validationErrors.message ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
+                      } rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-colors resize-none`}
                     />
                     {validationErrors.message && (
                       <p className="text-red-600 text-xs mt-1">{validationErrors.message}</p>
@@ -495,7 +495,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 px-6 text-sm font-bold text-white bg-orange-500 hover:bg-orange-600 hover:scale-[1.01] active:scale-[0.99] disabled:bg-slate-300 disabled:text-slate-500 rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer"
+                      className="w-full py-3.5 px-6 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 hover:scale-[1.01] active:scale-[0.99] disabled:bg-slate-300 disabled:text-slate-500 rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>
@@ -511,7 +511,7 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                     </button>
                     <div className="flex items-center justify-between text-[11px] text-slate-500 mt-2.5 px-1">
                       <span>Encrypted SSL Connection</span>
-                      <span className="font-mono text-orange-600 font-semibold">PostgreSQL + Drizzle ORM</span>
+                      <span className="font-mono text-blue-700 font-semibold">PostgreSQL + Drizzle ORM</span>
                     </div>
                   </div>
 
