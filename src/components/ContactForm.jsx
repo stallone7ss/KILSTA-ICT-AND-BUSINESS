@@ -20,6 +20,7 @@ import {
   Share2,
   ExternalLink
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useLeadSubmission } from '../hooks/useLeadSubmission';
 
 const SERVICE_OPTIONS = [
@@ -204,6 +205,33 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                   </div>
                 </div>
 
+                {/* Dedicated WhatsApp Direct Chat Card */}
+                <div className="bg-gradient-to-r from-emerald-500/10 via-emerald-500/5 to-transparent border border-emerald-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-xs">
+                      <WhatsAppIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-emerald-950 block">
+                        Official WhatsApp Consultation
+                      </span>
+                      <p className="text-[11px] text-emerald-700">
+                        Chat directly with Director Stallone Yabom &amp; the Milne Bay advisory team
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold rounded-xl shadow-xs hover:scale-105 active:scale-95 transition-all shrink-0"
+                  >
+                    <WhatsAppIcon className="w-3.5 h-3.5" />
+                    <span>Open WhatsApp</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+
                 {/* Social Networks Channel */}
                 <div className="flex items-start gap-3.5">
                   <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
@@ -211,9 +239,18 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                   </div>
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
-                      Connect on Social Media
+                      Connect on Social Media &amp; Messaging
                     </span>
                     <div className="flex flex-wrap items-center gap-2 mt-2">
+                      <a
+                        href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-[#25D366] text-xs font-semibold text-emerald-800 hover:text-white transition-all duration-200 border border-emerald-300 hover:border-[#25D366] hover:scale-105"
+                      >
+                        <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366] group-hover:text-white" />
+                        <span>WhatsApp</span>
+                      </a>
                       <a
                         href="https://www.facebook.com/profile.php?id=61595946544223"
                         target="_blank"

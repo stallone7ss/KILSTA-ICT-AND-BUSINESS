@@ -18,6 +18,7 @@ import {
   FileText,
   Phone
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const SUGGESTED_QUESTIONS = [
   {
@@ -543,23 +544,36 @@ export default function GeminiChatbot() {
               </button>
             </div>
 
-            {/* Quick Contact Desk Link & Phone */}
-            <div className="mt-2 flex items-center justify-between text-[11px] text-slate-500">
+            {/* Quick Contact Desk Link & Phone & WhatsApp */}
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500">
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center gap-1 text-blue-700 hover:text-blue-800 font-semibold transition-colors"
               >
-                <span>Submit Official Inquiry Form</span>
+                <span>Official Inquiry Form</span>
                 <ExternalLink className="w-3 h-3 text-blue-600" />
               </a>
-              <a
-                href="tel:+67582545274"
-                className="flex items-center gap-1 text-slate-600 hover:text-emerald-700 font-mono transition-colors"
-              >
-                <Phone className="w-3 h-3 text-emerald-600" />
-                <span>+675 82545274</span>
-              </a>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-[#25D366] hover:text-[#20ba59] font-semibold transition-colors"
+                  title="Chat with consultant on WhatsApp"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+                <span className="text-slate-300">·</span>
+                <a
+                  href="tel:+67582545274"
+                  className="flex items-center gap-1 text-slate-600 hover:text-emerald-700 font-mono transition-colors"
+                >
+                  <Phone className="w-3 h-3 text-emerald-600" />
+                  <span>+675 82545274</span>
+                </a>
+              </div>
             </div>
           </div>
 

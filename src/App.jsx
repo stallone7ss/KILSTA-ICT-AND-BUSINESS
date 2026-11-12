@@ -32,6 +32,7 @@ import MarqueeStrip from './components/MarqueeStrip';
 import StarSparkles from './components/StarSparkles';
 import AdminPortal from './components/AdminPortal';
 import GeminiChatbot from './components/GeminiChatbot';
+import WhatsAppIcon from './components/WhatsAppIcon';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState('');
@@ -111,6 +112,17 @@ export const leads = pgTable('leads', {
             </a>
             <span className="text-slate-300 hidden sm:inline" aria-hidden="true">·</span>
             <div className="flex items-center gap-2.5">
+              <a
+                href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="KILSTA on WhatsApp"
+                title="Chat on WhatsApp (+675 82545274)"
+                className="text-[#25D366] hover:text-[#20ba59] transition-colors hover:scale-110 flex items-center gap-1 text-xs font-semibold"
+              >
+                <WhatsAppIcon className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">WhatsApp</span>
+              </a>
               <a
                 href="https://www.facebook.com/profile.php?id=61595946544223"
                 target="_blank"
@@ -323,6 +335,15 @@ export const leads = pgTable('leads', {
                 <ChevronRight className="w-4 h-4" />
               </a>
               <a
+                href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 text-sm font-bold text-white bg-[#25D366] hover:bg-[#20ba59] hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2 whitespace-nowrap"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-white" />
+                <span>WhatsApp Us</span>
+              </a>
+              <a
                 href="#contact"
                 className="px-6 py-3.5 text-sm font-bold text-slate-800 bg-white hover:bg-emerald-50 border border-slate-300 hover:border-emerald-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl shadow-xs transition-all flex items-center gap-2 whitespace-nowrap"
               >
@@ -427,6 +448,75 @@ export const leads = pgTable('leads', {
               </div>
             </div>
 
+          </div>
+
+          {/* Executive Leadership Spotlight Preview */}
+          <div className="mt-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <span className="text-xs font-bold text-emerald-700 tracking-wider uppercase block">
+                  Provincial Operations &amp; Academic Leadership
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mt-0.5">
+                  The Strategists Behind KILSTA
+                </h3>
+              </div>
+              <a
+                href="#team"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-800 transition-colors"
+              >
+                <span>View Full Credentials Grid</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {/* Wilson Hugh */}
+              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-sm">
+                  WH
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900">Mr. Wilson Hugh</h4>
+                  <p className="text-xs text-blue-700 font-semibold">Principal Director</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">UPNG Economics &amp; Finance</p>
+                </div>
+              </div>
+
+              {/* Clifford Jones */}
+              <a 
+                href="#team"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70 group hover:border-blue-300 hover:bg-blue-50/40 transition-all"
+              >
+                <img
+                  src="/assets/aistudio/image_afc81531.png"
+                  alt="Mr. Clifford Jones - Training Manager"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top shrink-0 border border-slate-200 shadow-sm ring-2 ring-white group-hover:scale-105 transition-transform"
+                />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Mr. Clifford Jones</h4>
+                  <p className="text-xs text-blue-700 font-semibold">Training Manager</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Post Grad Computing (USQ, Aus)</p>
+                </div>
+              </a>
+
+              {/* Stallone Yabom */}
+              <a 
+                href="#team"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70 group hover:border-blue-300 hover:bg-blue-50/40 transition-all"
+              >
+                <img
+                  src="/assets/aistudio/image_1b750f55.png"
+                  alt="Mr. Stallone Yabom - ICT Manager"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top shrink-0 border border-slate-200 shadow-sm ring-2 ring-white group-hover:scale-105 transition-transform"
+                />
+                <div>
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Mr. Stallone Yabom</h4>
+                  <p className="text-xs text-blue-700 font-semibold">ICT &amp; Operations Manager</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">Starlink &amp; Field Telecommunications</p>
+                </div>
+              </a>
+            </div>
           </div>
 
         </div>
@@ -598,6 +688,16 @@ export const leads = pgTable('leads', {
                   Official Channels
                 </span>
                 <div className="flex items-center gap-2">
+                  <a
+                    href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Chat on WhatsApp"
+                    title="Direct WhatsApp (+675 82545274)"
+                    className="w-8 h-8 rounded-lg bg-emerald-50 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-all duration-200 border border-emerald-200 shadow-2xs hover:scale-110"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                  </a>
                   <a
                     href="https://www.facebook.com/profile.php?id=61595946544223"
                     target="_blank"
@@ -820,6 +920,21 @@ export const leads = pgTable('leads', {
 
       {/* 12. Interactive Gemini Multi-Turn AI Advisory Assistant */}
       <GeminiChatbot />
+
+      {/* 13. Direct Floating WhatsApp Quick-Connect (Bottom Left) */}
+      <div className="fixed bottom-6 left-6 z-40 flex items-center gap-2">
+        <a
+          href="https://wa.me/67582545274?text=Hello%20KILSTA%20Business%20%26%20ICT%20Consultants%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Direct WhatsApp Chat with KILSTA (+675 82545274)"
+          title="Direct WhatsApp with KILSTA (+675 82545274)"
+          className="group flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white py-2.5 px-4 rounded-2xl shadow-xl hover:shadow-[#25D366]/40 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-emerald-300"
+        >
+          <WhatsAppIcon className="w-5 h-5 text-white group-hover:rotate-6 transition-transform" />
+          <span className="text-xs font-bold tracking-wide hidden sm:inline">Chat on WhatsApp</span>
+        </a>
+      </div>
 
     </div>
   );

@@ -19,6 +19,11 @@ service cloud.firestore {
         data.status is string && data.status in ['New', 'In Review', 'Contacted', 'Proposal Sent', 'Closed'];
     }
 
+    match /test/{docId} {
+      // Allow connection health check
+      allow read: if true;
+    }
+
     match /leads/{leadId} {
       // Public visitors can submit inquiries
       allow create: if isValidId(leadId) && isValidLead(request.resource.data);
