@@ -417,7 +417,6 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="e.g. Samuel Kora"
                           disabled={isSubmitting}
                           className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
                             validationErrors.name ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
@@ -438,7 +437,6 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="e.g. samuel@cooperative.org.pg"
                         disabled={isSubmitting}
                         className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
                           validationErrors.email ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
@@ -461,7 +459,6 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. +675 7xxxxxxx"
                         disabled={isSubmitting}
                         className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                       />
@@ -476,7 +473,6 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                         name="organization"
                         value={formData.organization}
                         onChange={handleChange}
-                        placeholder="e.g. Milne Bay Cocoa Farmers Assoc."
                         disabled={isSubmitting}
                         className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 text-sm placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 transition-colors"
                       />
@@ -516,7 +512,6 @@ export default function ContactForm({ preselectedService, onResetPreselected }) 
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Outline your requirements (e.g. number of staff to train, Starlink installation location, business registration details, or network requirements)..."
                       disabled={isSubmitting}
                       className={`w-full px-3.5 py-2.5 bg-slate-50 border ${
                         validationErrors.message ? 'border-red-400 focus:ring-red-400' : 'border-slate-200 focus:border-blue-600'
