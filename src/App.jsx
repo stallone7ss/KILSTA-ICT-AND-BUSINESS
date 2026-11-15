@@ -473,7 +473,7 @@ export const leads = pgTable('leads', {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {/* Wilson Hugh */}
               <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-sm">
+                <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-sm">
                   WH
                 </div>
                 <div>
@@ -488,11 +488,13 @@ export const leads = pgTable('leads', {
                 href="#team"
                 className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70 group hover:border-blue-300 hover:bg-blue-50/40 transition-all"
               >
-                <img
-                  src="/assets/aistudio/image_afc81531.png"
-                  alt="Mr. Clifford Jones - Training Manager"
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top shrink-0 border border-slate-200 shadow-sm ring-2 ring-white group-hover:scale-105 transition-transform"
-                />
+                <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-white border border-slate-200 shadow-sm ring-2 ring-white shrink-0 overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/assets/aistudio/image_afc81531.png"
+                    alt="Mr. Clifford Jones - Training Manager"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform"
+                  />
+                </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Mr. Clifford Jones</h4>
                   <p className="text-xs text-blue-700 font-semibold">Training Manager</p>
@@ -505,11 +507,13 @@ export const leads = pgTable('leads', {
                 href="#team"
                 className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70 group hover:border-blue-300 hover:bg-blue-50/40 transition-all"
               >
-                <img
-                  src="/assets/aistudio/image_1b750f55.png"
-                  alt="Mr. Stallone Yabom - ICT Manager"
-                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover object-top shrink-0 border border-slate-200 shadow-sm ring-2 ring-white group-hover:scale-105 transition-transform"
-                />
+                <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-white border border-slate-200 shadow-sm ring-2 ring-white shrink-0 overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/assets/aistudio/image_1b750f55.png"
+                    alt="Mr. Stallone Yabom - ICT Manager"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform"
+                  />
+                </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Mr. Stallone Yabom</h4>
                   <p className="text-xs text-blue-700 font-semibold">ICT &amp; Operations Manager</p>

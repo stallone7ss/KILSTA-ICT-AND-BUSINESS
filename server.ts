@@ -8,7 +8,17 @@ import { getOrCreateUser } from './src/db/users.ts';
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+const portArgIdx = process.argv.indexOf('--port');
+const cliPort =
+  portArgIdx !== -1 && process.argv[portArgIdx + 1]
+    ? parseInt(process.argv[portArgIdx + 1], 10)
+    : null;
+const envPort = process.env.DEFAULT_APP_PORT
+  ? parseInt(process.env.DEFAULT_APP_PORT, 10)
+  : process.env.PORT && process.env.PORT !== process.env.NGINX_PORT
+    ? parseInt(process.env.PORT, 10)
+    : 3000;
+const PORT = cliPort || envPort || 3000;
 
 app.use(express.json());
 

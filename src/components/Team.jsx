@@ -120,16 +120,20 @@ export default function Team() {
             >
               <div>
                 {/* Executive Portrait Showcase Header */}
-                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-6 bg-slate-100 border border-slate-200 group-hover:border-blue-300 transition-all shadow-xs">
+                <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-slate-50 via-white to-blue-50/40 border border-slate-200 group-hover:border-blue-300 transition-all shadow-xs flex items-center justify-center">
                   {leader.image ? (
                     <>
-                      <img 
-                        src={leader.image} 
-                        alt={leader.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 cursor-pointer"
+                      <div
+                        className="w-full h-full p-3 flex items-center justify-center cursor-pointer"
                         onClick={() => setSelectedPortrait(leader)}
-                        title={`Click to enlarge ${leader.name}'s official portrait`}
-                      />
+                      >
+                        <img 
+                          src={leader.image} 
+                          alt={leader.name}
+                          className="max-h-full max-w-full w-auto h-auto object-contain object-center rounded-xl group-hover:scale-105 transition-transform duration-500 shadow-2xs"
+                          title={`Click to enlarge ${leader.name}'s official portrait`}
+                        />
+                      </div>
                       <button
                         onClick={() => setSelectedPortrait(leader)}
                         aria-label={`View enlarged portrait of ${leader.name}`}
