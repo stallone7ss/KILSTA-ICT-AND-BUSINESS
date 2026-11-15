@@ -8,7 +8,7 @@ const leaders = [
     title: 'Principle Director & Admin Manager',
     roleTag: 'Executive Governance & Finance',
     bio: 'Oversees corporate strategy, statutory compliance, and economic feasibility. With deep roots in Papua New Guinea fiscal frameworks, Mr. Hugh coordinates client engagements for IPA formalization, tax governance, and commercial project modeling.',
-    image: null,
+    image: '/assets/aistudio/Wilz_c303a6b3.jfif',
     qualifications: [
       {
         degree: 'Bachelor in Pure Economics',
@@ -32,7 +32,7 @@ const leaders = [
     name: 'Mr. Clifford Jones',
     title: 'Training Manager',
     roleTag: 'Computing & Capacity Building',
-    image: '/assets/aistudio/image_afc81531.png',
+    image: '/assets/aistudio/clifford_Jones_047c8814.png',
     bio: 'Drives technical training initiatives and curriculum architecture. Holding triple qualifications across Australian and PNG institutions, Mr. Jones spearheads enterprise capacity building, hands-on software workshops, and professional workforce upskilling.',
     qualifications: [
       {

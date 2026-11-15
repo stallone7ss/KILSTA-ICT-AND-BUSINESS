@@ -472,16 +472,23 @@ export const leads = pgTable('leads', {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {/* Wilson Hugh */}
-              <div className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70">
-                <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl shrink-0 shadow-sm">
-                  WH
+              <a
+                href="#team"
+                className="flex items-center gap-3.5 p-4 rounded-2xl bg-slate-50 border border-slate-200/70 group hover:border-blue-300 hover:bg-blue-50/40 transition-all"
+              >
+                <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-white border border-slate-200 shadow-sm ring-2 ring-white shrink-0 overflow-hidden flex items-center justify-center">
+                  <img
+                    src="/assets/aistudio/Wilz_c303a6b3.jfif"
+                    alt="Mr. Wilson Hugh - Principal Director"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform"
+                  />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-900">Mr. Wilson Hugh</h4>
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Mr. Wilson Hugh</h4>
                   <p className="text-xs text-blue-700 font-semibold">Principal Director</p>
                   <p className="text-[11px] text-slate-500 mt-0.5">UPNG Economics &amp; Finance</p>
                 </div>
-              </div>
+              </a>
 
               {/* Clifford Jones */}
               <a 
@@ -490,7 +497,7 @@ export const leads = pgTable('leads', {
               >
                 <div className="w-14 h-16 sm:w-16 sm:h-20 rounded-2xl bg-white border border-slate-200 shadow-sm ring-2 ring-white shrink-0 overflow-hidden flex items-center justify-center">
                   <img
-                    src="/assets/aistudio/image_afc81531.png"
+                    src="/assets/aistudio/clifford_Jones_047c8814.png"
                     alt="Mr. Clifford Jones - Training Manager"
                     className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform"
                   />
