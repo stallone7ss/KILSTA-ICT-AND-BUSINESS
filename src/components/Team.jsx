@@ -33,7 +33,7 @@ const leaders = [
     title: 'Training Manager',
     roleTag: 'Computing & Capacity Building',
     image: '/assets/aistudio/clifford_Jones_047c8814.png',
-    bio: 'Drives technical training initiatives and curriculum architecture. Holding triple qualifications across Australian and PNG institutions, Mr. Jones spearheads enterprise capacity building, hands-on software workshops, and professional workforce upskilling.',
+    bio: 'Drives technical training initiatives, systems engineering, and computing infrastructure. Holding four accredited qualifications across Australian and PNG institutions, Mr. Jones pairs hands-on software, database, and systems administration expertise with professional workforce capacity building.',
     qualifications: [
       {
         degree: 'Post Graduate Diploma in Professional Computing',
@@ -57,10 +57,12 @@ const leaders = [
       }
     ],
     specialties: [
+      'Software Engineering & Systems Analysis',
+      'Database Systems & Application Development',
+      'Enterprise Network & Server Administration',
       'Institutional Software Workshops',
       'Professional Computing Curriculum',
-      'Business Administration Training',
-      'IT Workforce Capability Standards'
+      'Business Administration & IT Workforce Training'
     ]
   },
   {
@@ -68,7 +70,7 @@ const leaders = [
     title: 'ICT Manager',
     roleTag: 'Infrastructure & Field Operations',
     image: '/assets/aistudio/image_1b750f55.png',
-    bio: 'Leads engineering operations, field technical teams, and rural communications rollout. Mr. Yabom oversees turnkey Starlink satellite installations, structured office networks, database development, and high-reliability connectivity across maritime LLGs.',
+    bio: 'Leads engineering operations, field technical teams, and STEM instruction. Grounded in Natural Science from UOG, Mr. Yabom delivers Physics, Mathematics, ICT, and Robotics teaching and practical training alongside turnkey Starlink satellite installations and rural telecommunications.',
     qualifications: [
       {
         degree: 'Bachelor in Natural Science',
@@ -77,6 +79,8 @@ const leaders = [
       }
     ],
     specialties: [
+      'Teaching Physics & Mathematics',
+      'ICT & Robotics Training & STEM Education',
       'Starlink Satellite Deployment & Alignment',
       'Enterprise LAN/WLAN Mesh Infrastructure',
       'Database Architecture & Cloudflare Caching',
@@ -211,7 +215,7 @@ export default function Team() {
                 {/* Core Competencies */}
                 <div className="border-t border-slate-100 pt-4 mb-6">
                   <span className="text-xs font-bold text-slate-800 uppercase tracking-wider block mb-2">
-                    Core Specializations
+                    Core Competencies
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {leader.specialties.map((item, sIdx) => (
