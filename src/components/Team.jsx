@@ -33,7 +33,7 @@ const leaders = [
     title: 'Training Manager',
     roleTag: 'Computing & Capacity Building',
     image: '/assets/aistudio/clifford_Jones_047c8814.png',
-    bio: 'Drives technical training initiatives, systems engineering, and computing infrastructure. Holding four accredited qualifications across Australian and PNG institutions, Mr. Jones pairs hands-on software, database, and systems administration expertise with professional workforce capacity building.',
+    bio: 'Drives technical operations, IT infrastructure supervision, and workforce training. Holding four accredited qualifications across Australian and PNG institutions, Mr. Jones handles hardware repairs, operating system installations, and branch network troubleshooting; provides L1/L2 ICT support engineering with router, switch, and VPN configuration; and oversees network operations, industrial site connectivity, and cybersecurity compliance.',
     qualifications: [
       {
         degree: 'Post Graduate Diploma in Professional Computing',
@@ -57,12 +57,13 @@ const leaders = [
       }
     ],
     specialties: [
-      'Software Engineering & Systems Analysis',
-      'Database Systems & Application Development',
-      'Enterprise Network & Server Administration',
-      'Institutional Software Workshops',
-      'Professional Computing Curriculum',
-      'Business Administration & IT Workforce Training'
+      'Hardware Repairs & OS Installations',
+      'L1/L2 ICT Support & End-User Assistance',
+      'Router, Switch & VPN Configuration',
+      'Branch & Industrial Site Connectivity',
+      'IT Infrastructure & Network Operations',
+      'Cybersecurity Compliance & Risk Controls',
+      'Software Workshops & IT Workforce Training'
     ]
   },
   {
